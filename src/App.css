@@ -11,7 +11,7 @@
 /* For mobile phones: */
 [class*="col-"] {
   width: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   float: left;
 }
 
@@ -80,18 +80,15 @@ body {
 #useful-links {
   text-align: center;
   margin-top: 1rem;
-  display: block;
 }
 
 #auth {
   text-align: center;
   padding-right: 5px;
-  display: block;
 }
 
 #cart {
   text-align: center;
-  display: block;
 }
 
 a#logo {
@@ -113,6 +110,10 @@ a:hover {
   color: white;
   text-shadow: 0px 0px 1px beige;
   background-color: darkblue;
+}
+
+.hidden {
+  display: none;
 }
 
 @media only screen and (min-width: 600px) {
