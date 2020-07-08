@@ -11,7 +11,7 @@
 /* For mobile phones: */
 [class*="col-"] {
   width: 100%;
-  /* border: 1px solid red; */
+  border: 1px solid red;
   float: left;
 }
 
@@ -79,34 +79,40 @@ body {
 
 #useful-links {
   text-align: center;
-  padding: 0.3rem 0;
-  background-color: midnightblue;
   margin-top: 1rem;
+  display: block;
 }
 
 #auth {
   text-align: center;
   padding-right: 5px;
-  padding: 0.3rem 0;
-  background-color: midnightblue;
+  display: block;
 }
 
 #cart {
   text-align: center;
-  background-color: midnightblue;
-  padding: 0.3rem 0;
+  display: block;
+}
+
+a#logo {
+  background-color: royalblue;
+  padding: 0;
 }
 
 a {
-  display: inline-block;
+  display: block;
   text-decoration: none;
   color: white;
-  padding: 0px 20px;
+  padding: 5px 20px;
+  width: 10rem;
+  text-align: left;
+  background-color: midnightblue;
 }
 
 a:hover {
   color: white;
   text-shadow: 0px 0px 1px beige;
+  background-color: darkblue;
 }
 
 @media only screen and (min-width: 600px) {
@@ -117,6 +123,13 @@ a:hover {
 
   a {
     padding: 0px 12px;
+    background-color: royalblue;
+    display: inline;
+  }
+
+  a:hover {
+    background-color: royalblue;
+    display: inline;
   }
 
   #logo {
