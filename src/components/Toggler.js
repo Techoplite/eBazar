@@ -7,11 +7,13 @@ import Cart from './Cart';
 const Toggler = () => {
     const [toggle, setToggle] = useState("hidden")
 
+    function checkToggle() {
+        toggle === "hidden" ? setToggle("") : setToggle("hidden")
+    }
+
     return (
         <Fragment>
-            <div className="col-xs-2" id="toggler" onClick={() => {
-                toggle === "hidden" ? setToggle("") : setToggle("hidden")
-            }}>
+            <div className="col-xs-2" id="toggler" onClick={() => checkToggle()}>
                 <i className="fas fa-bars" id="i-toggler" ></i>
             </div>
             <Logo />
