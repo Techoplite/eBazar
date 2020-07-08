@@ -65,11 +65,6 @@ body {
   background-color: snow;
 }
 
-#navbar {
-  background-color: royalblue;
-  padding: 1rem;
-}
-
 #logo {
   text-align: center;
   margin: auto;
@@ -77,27 +72,36 @@ body {
   font-size: 1.5rem;
 }
 
+#navbar {
+  background-color: royalblue;
+  padding: 1rem;
+}
+
 #useful-links {
   text-align: center;
   padding: 0.3rem 0;
+  background-color: midnightblue;
+  margin-top: 1rem;
 }
 
 #auth {
   text-align: center;
   padding-right: 5px;
   padding: 0.3rem 0;
+  background-color: midnightblue;
 }
 
 #cart {
   text-align: center;
+  background-color: midnightblue;
+  padding: 0.3rem 0;
 }
 
 a {
   display: inline-block;
   text-decoration: none;
-  background-color: royalblue;
   color: white;
-  padding: 0px 10px;
+  padding: 0px 20px;
 }
 
 a:hover {
@@ -109,6 +113,10 @@ a:hover {
   /* For tablets: */
   body {
     font-size: 1rem;
+  }
+
+  a {
+    padding: 0px 12px;
   }
 
   #logo {
@@ -123,16 +131,23 @@ a:hover {
 
   #useful-links {
     padding: 0;
+    background-color: royalblue;
+    margin-top: 0;
   }
 
   #auth {
     text-align: right;
     padding-right: 5px;
     padding: 0;
+    background-color: royalblue;
   }
 
   #toggler {
     display: none;
+  }
+
+  #cart {
+    background-color: royalblue;
   }
 
   .col-s-1 {
