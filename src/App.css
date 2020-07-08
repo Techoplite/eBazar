@@ -164,6 +164,10 @@ a:hover {
     background-color: royalblue;
   }
 
+  .hidden {
+    display: inline;
+  }
+
   .col-s-1 {
     width: 8.33%;
   }
