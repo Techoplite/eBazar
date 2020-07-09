@@ -11,7 +11,7 @@
 /* For mobile phones: */
 [class*="col-"] {
   width: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   float: left;
 }
 
@@ -52,6 +52,33 @@
   width: 100%;
 }
 
+label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: block;
+}
+
+select {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  display: block;
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+  border: 1.5px solid lightgray;
+  outline: none;
+  font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  color: grey;
+  font-size: 0.8rem;
+}
+
+select:focus {
+  border: 1.5px solid snow;
+  border-radius: 0.3rempx;
+  box-shadow: 0 0 5px rgb(65, 153, 225);
+}
+
 #search-box {
   padding-left: 2rem;
 }
@@ -69,6 +96,23 @@ input[type="text"] {
   margin: 1rem 0;
   color: grey;
   font-weight: 500;
+  font-size: 0.85rem;
+}
+
+input#myRange {
+  display: block;
+}
+
+input [type="range"] {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  transition: opacity 0.2s;
 }
 
 input[type="text"]:focus {
@@ -77,12 +121,19 @@ input[type="text"]:focus {
   box-shadow: 0 0 5px rgb(65, 153, 225);
 }
 
+#footer {
+  background-color: royalblue;
+  margin: 5rem 0;
+  color: white;
+}
+
 #author {
   text-align: center;
+  padding: 5rem 0;
 }
 
 #aside {
-  padding: 0 5rem;
+  padding: 0 2rem;
 }
 
 #i-toggler {
@@ -202,8 +253,7 @@ a:hover {
   }
 
   #aside {
-    height: 200px;
-    padding: 0 2rem;
+    padding: 0 5rem;
   }
 
   #search-form {
