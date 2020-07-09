@@ -15,6 +15,15 @@
   float: left;
 }
 
+.cart-itmes {
+  background-color: yellow;
+  border-radius: 500px;
+  font-size: 0.78rem;
+  padding: 2.5px 7px;
+  color: red;
+  font-weight: bolder;
+}
+
 .col-xs-1 {
   width: 8.33%;
 }
