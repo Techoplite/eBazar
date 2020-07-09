@@ -11,7 +11,7 @@
 /* For mobile phones: */
 [class*="col-"] {
   width: 100%;
-  /* border: 1px solid red; */
+  border: 1px solid red;
   float: left;
 }
 
@@ -82,7 +82,7 @@ input[type="text"]:focus {
 }
 
 #aside {
-  padding: 0 1rem;
+  padding: 0 5rem;
 }
 
 #i-toggler {
@@ -155,10 +155,6 @@ a:hover {
     font-size: 1rem;
   }
 
-  #aside {
-    padding: 0 1rem;
-  }
-
   a {
     padding: 0px 12px;
     background-color: royalblue;
@@ -207,6 +203,7 @@ a:hover {
 
   #aside {
     height: 200px;
+    padding: 0 2rem;
   }
 
   #search-form {
@@ -261,6 +258,10 @@ a:hover {
     font-size: 1.1rem;
     padding-bottom: 0;
     margin: 0;
+  }
+
+  #aside {
+    padding: 0 2rem;
   }
 
   #search-form {
