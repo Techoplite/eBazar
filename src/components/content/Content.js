@@ -1,5 +1,5 @@
 import React from 'react';
-import Aside from './Aside';
+import Aside from './aside/Aside';
 
 const Content = () => {
     return (
