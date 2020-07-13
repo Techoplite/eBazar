@@ -11,11 +11,12 @@
 /* For mobile phones: */
 [class*="col-"] {
   width: 100%;
-  /* border: 1px solid red; */
+  border: 1px solid red;
   float: left;
 }
 
 .cart-itmes {
+  display: inline-block;
   background-color: yellow;
   border-radius: 500px;
   font-size: 0.78rem;
@@ -212,11 +213,11 @@ a:hover {
 @media only screen and (min-width: 600px) {
   /* For tablets: */
   body {
-    font-size: 1rem;
+    font-size: 0.97rem;
   }
 
   a {
-    padding: 0px 12px;
+    padding: 0px 5px;
     background-color: royalblue;
     display: inline;
   }
