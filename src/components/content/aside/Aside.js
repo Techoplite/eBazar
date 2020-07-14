@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBox from './SearchBox';
-import Filter from './Filter';
+import Filter from './filter/Filter';
 
 const Aside = () => {
     return (
