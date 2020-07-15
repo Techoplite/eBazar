@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import selectCategory from '../../../../actions'
 
 const Filter = (props) => {
 
@@ -79,9 +80,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         selectCategory: (value) => {
-            dispatch({
-                type: 'SELECT_CATEGORY', value: value
-            })
+            dispatch(selectCategory(value))
         }
     }
 }
