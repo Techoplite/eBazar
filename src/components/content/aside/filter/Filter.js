@@ -1,6 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
-import selectCategory from '../../../../actions'
+import { selectCategory, fetchCategories } from '../../../../actions'
+
+const categories = [
+    {
+        id: '1',
+        value: 'any',
+        name: '--- Any ---'
+    },
+    {
+        id: '2',
+        value: 'computers-and-accessories',
+        name: 'Computers and Accessories'
+    },
+    {
+        id: '3',
+        value: 'fashion',
+        name: 'Fashion'
+    },
+    {
+        id: '4',
+        value: 'digital-music',
+        name: 'Digital Music'
+    },
+]
 
 const Filter = (props) => {
 
@@ -14,13 +37,6 @@ const Filter = (props) => {
     //     setMaxPrice(event.target.value)
     // }
 
-    // const [category, setCategory] = useState("select")
-    // const handleCategory = event => {
-    //     console.log(event.target.value)
-    //     setCategory(event.target.value)
-    // }
-
-
     // const [department, setDepartment] = useState("select")
     // const handleDepartment = event => {
     //     console.log(event.target.value)
@@ -28,10 +44,15 @@ const Filter = (props) => {
     // }
     // console.log(props);
 
+
     const handleChange = event => {
         event.preventDefault()
         props.selectCategory(event.target.value)
     }
+
+    useEffect(() => {
+        props.fetchCategories(categories)
+    })
 
 
     return (
@@ -39,13 +60,14 @@ const Filter = (props) => {
             <form id="filter-category">
                 <label htmlFor="category">Category</label>
                 <select className="col-12" id="category" name="category" size="3" value={props.currentCategory} onChange={(event) => handleChange(event)}>
-                    <option value="any">--- Any ---</option>
+                    {props.categories.map(category => <option key={category.value} value={category.value}>{category.name}</option>)}
+                    {/* <option value="any">--- Any ---</option>
                     <option value="computer and accessories">Computer and Accessories</option>
                     <option value="fashion">Fashion</option>
                     <option value="digital music">Digital Music</option>
                     <option value="grocery">Grocery</option>
                     <option value="videogames">Videogames</option>
-                    <option value="toys">Toys</option>
+                    <option value="toys">Toys</option> */}
                 </select>
             </form>
             {/* <form id="filter-department">
@@ -81,7 +103,11 @@ const mapDispatchToProps = (dispatch) => {
     return {
         selectCategory: (value) => {
             dispatch(selectCategory(value))
+        },
+        fetchCategories: (categories) => {
+            dispatch(fetchCategories(categories))
         }
+
     }
 }
 
