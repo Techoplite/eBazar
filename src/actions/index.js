@@ -1,7 +1,7 @@
 const selectCategory = (value) => {
     return {
         type: 'SELECT_CATEGORY',
-        value
+        payload: { value }
     }
 }
 
