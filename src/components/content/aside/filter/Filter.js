@@ -23,6 +23,16 @@ const categories = [
         value: 'digital-music',
         name: 'Digital Music'
     },
+    {
+        id: '5',
+        value: 'house',
+        name: 'House'
+    },
+    {
+        id: '6',
+        value: 'grocery',
+        name: 'Grocery'
+    },
 ]
 
 const Filter = (props) => {
