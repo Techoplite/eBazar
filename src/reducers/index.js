@@ -1,9 +1,12 @@
 const initState = {
     categories: [],
-    currentCategory: '--- Any ---'
+    currentCategory: 'select'
 }
 
 const rootReducer = (state = initState, action) => {
+    if (action.type === 'SELECT_CATEGORY') {
+        return { currentCategory: action.value }
+    }
     return state
 }
 

@@ -1,28 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { connect } from 'react-redux'
 
-const Filter = () => {
+const Filter = (props) => {
 
-    const [minPrice, setMinPrice] = useState(0)
-    const handleMinPrice = event => {
-        setMinPrice(event.target.value)
-    }
+    // const [minPrice, setMinPrice] = useState(0)
+    // const handleMinPrice = event => {
+    //     setMinPrice(event.target.value)
+    // }
 
-    const [maxPrice, setMaxPrice] = useState(0)
-    const handleMaxPrice = event => {
-        setMaxPrice(event.target.value)
-    }
+    // const [maxPrice, setMaxPrice] = useState(0)
+    // const handleMaxPrice = event => {
+    //     setMaxPrice(event.target.value)
+    // }
 
-    const [category, setCategory] = useState("select")
-    const handleCategory = event => {
-        console.log(event.target.value)
-        setCategory(event.target.value)
-    }
+    // const [category, setCategory] = useState("select")
+    // const handleCategory = event => {
+    //     console.log(event.target.value)
+    //     setCategory(event.target.value)
+    // }
 
 
-    const [department, setDepartment] = useState("select")
-    const handleDepartment = event => {
-        console.log(event.target.value)
-        setDepartment(event.target.value)
+    // const [department, setDepartment] = useState("select")
+    // const handleDepartment = event => {
+    //     console.log(event.target.value)
+    //     setDepartment(event.target.value)
+    // }
+    // console.log(props);
+
+    const handleChange = event => {
+        event.preventDefault()
+        props.selectCategory(event.target.value)
     }
 
 
@@ -30,8 +37,8 @@ const Filter = () => {
         <div className="filter-form col-12">
             <form id="filter-category">
                 <label htmlFor="category">Category</label>
-                <select className="col-12" id="category" name="category" size="3" value={category} onChange={handleCategory}>
-                    <option value="select">--- Select ---</option>
+                <select className="col-12" id="category" name="category" size="3" value={props.currentCategory} onChange={(event) => handleChange(event)}>
+                    <option value="any">--- Any ---</option>
                     <option value="computer and accessories">Computer and Accessories</option>
                     <option value="fashion">Fashion</option>
                     <option value="digital music">Digital Music</option>
@@ -40,7 +47,7 @@ const Filter = () => {
                     <option value="toys">Toys</option>
                 </select>
             </form>
-            <form id="filter-department">
+            {/* <form id="filter-department">
                 <label htmlFor="department">Department</label>
                 <select className="col-12" id="department" name="department" size="3" value={department} onChange={handleDepartment}>
                     <option value="select">--- Select ---</option>
@@ -57,9 +64,26 @@ const Filter = () => {
                 <input type="range" min="1" max="100" value={minPrice} className="slider col-xs-12" id="minimum-price" onChange={handleMinPrice} />
                 <label htmlFor="maximum-price">Max. Price: {maxPrice}£</label>
                 <input type="range" min="100" max="1000" value={maxPrice} className="slider col-xs-12" id="maximum-price" onChange={handleMaxPrice} />
-            </form>
+            </form> */}
         </div>
     );
 }
 
-export default Filter;
+const mapStateToProps = (state) => {
+    return {
+        categories: state.categories,
+        currentCategory: state.currentCategory
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        selectCategory: (value) => {
+            dispatch({
+                type: 'SELECT_CATEGORY', value: value
+            })
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);
