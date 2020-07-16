@@ -31,7 +31,7 @@ const Filter = (props) => {
 
     useEffect(() => {
         props.fetchCategories()
-    })
+    }, [])
 
 
     return (

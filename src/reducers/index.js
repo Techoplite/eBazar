@@ -11,7 +11,8 @@ const rootReducer = (state = initState, action) => {
         case actions.SELECT_CATEGORY:
             return { ...state, currentCategory: action.payload.value }
         case actions.FETCH_CATEGORIES:
-            return { ...state, categories: action.payload.categories }
+            console.log('action :>> ', action);
+            return { ...state, categories: action.payload }
         case actions.TOGGLE:
             return { ...state, toggler: action.payload.toggler }
         default:
