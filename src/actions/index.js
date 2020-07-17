@@ -1,9 +1,12 @@
+import axios from 'axios'
 /*
 action types
 */
 
 export const SELECT_CATEGORY = 'SELECT_CATEGORY'
-export const FETCH_CATEGORIES = 'FETCH_CATEGORIES'
+export const FETCH_CATEGORIES_REQUEST = 'FETCH_CATEGORIES_REQUEST'
+export const FETCH_CATEGORIES_SUCCESS = 'FETCH_CATEGORIES_SUCCESS'
+export const FETCH_CATEGORIES_FAILURE = 'FETCH_CATEGORIES_FAILURE'
 export const TOGGLE = 'TOGGLE'
 
 
@@ -18,19 +21,38 @@ export const selectCategory = value => {
     }
 }
 
+export const fetchCategoriesRequest = () => {
+    return {
+        type: FETCH_CATEGORIES_REQUEST
+    }
+}
 
-export const fetchCategories = () => (dispatch) => {
-    fetch("http://localhost:7000/categories")
-        .then(response => response.json())
-        .then(categories => {
-            // **Changes start here
-            dispatch({
-                type: FETCH_CATEGORIES,
-                payload: categories
+
+export const fetchCategoriesSuccess = (categories) => {
+    return {
+        type: FETCH_CATEGORIES_SUCCESS,
+        payload: categories
+    }
+}
+export const fetchCategoriesFailure = (error) => {
+    return {
+        type: FETCH_CATEGORIES_FAILURE,
+        payload: error
+    }
+}
+
+export const fetchCategories = () => {
+    return function (dispatch) {
+        dispatch(fetchCategoriesRequest())
+        axios.get('http://localhost:7000/categories')
+            .then(response => {
+                const categories = response.data
+                dispatch(fetchCategoriesSuccess(categories))}
+            )
+            .catch(error => {
+                dispatch(fetchCategoriesFailure(error.message))
             })
-            // **Changes end here
-        })
-
+    }
 }
 
 export const toggle = toggler => {
