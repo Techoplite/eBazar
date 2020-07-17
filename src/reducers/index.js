@@ -12,7 +12,7 @@ const initState = {
 const rootReducer = (state = initState, action) => {
     switch (action.type) {
         case actions.SELECT_CATEGORY:
-            return { ...state, currentCategory: action.payload }
+            return { ...state, currentCategory: action.payload.value, departments: action.payload.departments }
         case actions.FETCH_CATEGORIES_REQUEST:
             return { ...state, loading: true }
         case actions.FETCH_CATEGORIES_SUCCESS:

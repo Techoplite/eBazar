@@ -26,7 +26,7 @@ const Filter = (props) => {
 
     const handleChange = event => {
         event.preventDefault()
-        props.selectCategory(event.target.value)
+        props.selectCategory(props.categories, event.target.value)
     }
 
     useEffect(() => {
@@ -45,13 +45,9 @@ const Filter = (props) => {
             {props.currentCategory !== 'any' && <form id="filter-department">
                 <label htmlFor="department">Department</label>
                 <select className="col-12" id="department" name="department" size="5" value='{department}' onChange='{handleDepartment}'>
-                    <option value="select">--- Select ---</option>
-                    <option value="desktop PCs">Desktop PCs</option>
-                    <option value="laptops">Laptops</option>
-                    <option value="gamepads">Gamepads</option>
-                    <option value="headphones">Headphones</option>
-                    <option value="microphones">Microphones</option>
-                    <option value="keyboards">Keyboards</option>
+                    {props.departments.map(department =>
+                        <option value={department.value}>{department.name}</option>
+                    )}
                 </select>
             </form>}
             {/* <form id="filter-price">
@@ -67,14 +63,15 @@ const Filter = (props) => {
 const mapStateToProps = (state) => {
     return {
         categories: state.categories,
-        currentCategory: state.currentCategory
+        currentCategory: state.currentCategory,
+        departments: state.departments
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        selectCategory: (value) => {
-            dispatch(selectCategory(value))
+        selectCategory: (categories, value) => {
+            dispatch(selectCategory(categories, value))
         },
         fetchCategories: () => {
             dispatch(fetchCategories())

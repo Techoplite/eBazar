@@ -14,10 +14,13 @@ export const TOGGLE = 'TOGGLE'
 action creators
 */
 
-export const selectCategory = value => {
+export const selectCategory = (categories, value) => {
+    const categoryObject = categories.find(category => category.value === value)
+    const departments = []
+    categoryObject.departments.map(department => departments.push(department))
     return {
         type: SELECT_CATEGORY,
-        payload: value
+        payload: { value, departments }
     }
 }
 
@@ -48,7 +51,6 @@ export const fetchCategories = () => {
             .then(response => {
                 const categories = response.data
                 dispatch(fetchCategoriesSuccess(categories),
-                    console.log('categories :>> ', categories)
                 )
             }
             )
