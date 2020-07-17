@@ -12,7 +12,7 @@ const initState = {
 const rootReducer = (state = initState, action) => {
     switch (action.type) {
         case actions.SELECT_CATEGORY:
-            return { ...state, currentCategory: action.payload.value }
+            return { ...state, currentCategory: action.payload }
         case actions.FETCH_CATEGORIES_REQUEST:
             return { ...state, loading: true }
         case actions.FETCH_CATEGORIES_SUCCESS:
@@ -20,7 +20,7 @@ const rootReducer = (state = initState, action) => {
         case actions.FETCH_CATEGORIES_FAILURE:
             return { ...state, loading: false, categories: action.payload }
         case actions.TOGGLE:
-            return { ...state, toggler: action.payload.toggler }
+            return { ...state, toggler: action.payload }
         default:
             return state
     }

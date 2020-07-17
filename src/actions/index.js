@@ -17,7 +17,7 @@ action creators
 export const selectCategory = value => {
     return {
         type: SELECT_CATEGORY,
-        payload: { value }
+        payload: value
     }
 }
 
@@ -63,6 +63,6 @@ export const fetchCategories = () => {
 export const toggle = toggler => {
     return {
         type: TOGGLE,
-        payload: { toggler }
+        payload: toggler
     }
 }
