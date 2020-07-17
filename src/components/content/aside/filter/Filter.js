@@ -46,7 +46,7 @@ const Filter = (props) => {
                 <label htmlFor="department">Department</label>
                 <select className="col-12" id="department" name="department" size="5" value='{department}' onChange='{handleDepartment}'>
                     {props.departments.map(department =>
-                        <option value={department.value}>{department.name}</option>
+                        <option key={department.value} value={department.value}>{department.name}</option>
                     )}
                 </select>
             </form>}
