@@ -45,6 +45,7 @@ const Filter = (props) => {
             {props.currentCategory !== 'any' && <form id="filter-department">
                 <label htmlFor="department">Department</label>
                 <select className="col-12" id="department" name="department" size="5" value='{department}' onChange='{handleDepartment}'>
+                    <option key='any' value='any'>--- Any ---</option>
                     {props.departments.map(department =>
                         <option key={department.value} value={department.value}>{department.name}</option>
                     )}

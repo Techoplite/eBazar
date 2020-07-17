@@ -4,7 +4,7 @@ import Filter from './filter/Filter';
 
 const Aside = () => {
     return (
-        <div className="col-3 col-s-12 col-xs-12" id="aside">
+        <div className="col-2 col-s-12 col-xs-12" id="aside">
             <SearchBox />
             <Filter />
         </div>
