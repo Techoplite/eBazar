@@ -47,13 +47,18 @@ export const fetchCategories = () => {
         axios.get('http://localhost:7000/categories')
             .then(response => {
                 const categories = response.data
-                dispatch(fetchCategoriesSuccess(categories))}
+                dispatch(fetchCategoriesSuccess(categories),
+                    console.log('categories :>> ', categories)
+                )
+            }
             )
             .catch(error => {
                 dispatch(fetchCategoriesFailure(error.message))
             })
     }
 }
+
+
 
 export const toggle = toggler => {
     return {
