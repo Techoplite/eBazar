@@ -2,12 +2,11 @@ import React from 'react';
 
 const Cart = (props) => {
     return (
-        <div className={`col-1 col-s-2 col-xs-12 ${props.toggler}`} id="cart">
-            <a href="/cart/">
-                <i className="fas fa-shopping-cart"></i>
-                <span className="cart-itmes">4</span>
+        <div>
+            <a href="/cart/" id="cart">
+                <i className="fas fa-shopping-cart" id="cart-icon"></i>
+                <span className="cart-items">4</span>
             </a>
-
         </div>
     );
 }

@@ -2,9 +2,10 @@ import React, { Fragment } from 'react';
 import Logo from './Logo';
 import Auth from './Auth';
 import UsefulLinks from './UsefulLinks';
-import Cart from './Cart';
 import { connect } from 'react-redux'
 import { toggle } from './../../../actions'
+import Cart from './Cart';
+
 
 
 const Toggler = (props) => {
@@ -17,13 +18,18 @@ const Toggler = (props) => {
 
     return (
         <Fragment>
-            <div className="col-xs-2" id="toggler" onClick={() => toggle(props.toggler)}>
-                <i className="fas fa-bars" id="i-toggler" ></i>
+            <div className="col-12" id="small-navbar">
+                <div id="toggler" onClick={() => toggle(props.toggler)}>
+                    <i className="fas fa-bars" id="i-toggler" ></i>
+                </div>
+                <Logo />
+                <Cart toggler={props.toggler} />
+
             </div>
-            <Logo />
-            <UsefulLinks toggler={props.toggler} />
-            <Auth toggler={props.toggler} />
-            <Cart toggler={props.toggler} />
+            <div className={`col-12 toggable-items ${props.toggler}`}>
+                <UsefulLinks toggler={props.toggler} />
+                <Auth toggler={props.toggler} />
+            </div>
         </Fragment>
     );
 }
