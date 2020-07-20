@@ -18,7 +18,7 @@ body {
   width: 100%;
   float: left;
   padding: 15px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .hidden {
@@ -29,6 +29,7 @@ body {
   display: flex;
   align-items: center;
   flex-flow: wrap;
+  border-bottom: 2px solid rgb(206, 184, 114);
 }
 
 #small-navbar {
@@ -96,10 +97,26 @@ input[type="text"] {
   color: grey;
   font-weight: 500;
   font-size: 0.85rem;
-  transition: box-shadow 0.5s linear;
+  transition: box-shadow 0.3s linear;
 }
 
 input[type="text"]:focus {
+  box-shadow: 0 0 3px grey;
+}
+
+#category,
+#department {
+  border-radius: 5px;
+  border: 1.5px solid lightgray;
+}
+
+select {
+  margin: 10px 0 15px 0;
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+select:focus {
+  outline: none;
   box-shadow: 0 0 3px grey;
 }
 
@@ -110,6 +127,12 @@ input[type="text"]:focus {
 
 .toggable-items {
   background-color: rgb(97, 63, 126);
+}
+
+#footer {
+  text-align: center;
+  background-color: rgb(216, 193, 119);
+  color: rgb(97, 63, 126);
 }
 
 /* Tablets: */
