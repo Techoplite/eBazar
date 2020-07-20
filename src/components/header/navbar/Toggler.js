@@ -27,8 +27,8 @@ const Toggler = (props) => {
 
             </div>
             <div className={`col-12 toggable-items ${props.toggler}`}>
-                <UsefulLinks toggler={props.toggler} />
                 <Auth toggler={props.toggler} />
+                <UsefulLinks toggler={props.toggler} />
             </div>
         </Fragment>
     );

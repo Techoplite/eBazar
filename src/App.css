@@ -46,31 +46,9 @@ a#cart {
   padding-top: 11px;
 }
 
-/* #navbar {
-  padding: 0;
-  display: flex;
-  flex-flow: wrap;
-  align-items: center;
-} */
-
-/* #auth {
-  display: flex;
-  justify-content: space-evenly;
-} */
-
-/* #cart {
-  display: inline;
-} */
-
-/* .auth-link,
-.useful-link {
-  margin-left: 15px;
-} */
-
-/* #useful-links {
-  display: flex;
-  justify-content: space-evenly;
-} */
+#search-box {
+  padding-left: 35px;
+}
 
 a {
   text-decoration: none;
@@ -118,6 +96,11 @@ input[type="text"] {
   color: grey;
   font-weight: 500;
   font-size: 0.85rem;
+  transition: box-shadow 0.5s linear;
+}
+
+input[type="text"]:focus {
+  box-shadow: 0 0 3px grey;
 }
 
 #toggler {
@@ -128,10 +111,6 @@ input[type="text"] {
 .toggable-items {
   background-color: rgb(97, 63, 126);
 }
-
-/* .small-navbar {
-  display: flex;
-} */
 
 /* Tablets: */
 @media only screen and (min-width: 600px) {
@@ -171,28 +150,6 @@ input[type="text"] {
   .col-s-12 {
     width: 100%;
   }
-
-  /* #navbar {
-    flex-wrap: wrap;
-  }
-
-  .order-s-1 {
-    order: 1;
-  }
-  .order-s-2 {
-    order: 2;
-  }
-  .order-s-3 {
-    order: 3;
-  }
-  .order-s-4 {
-    order: 4;
-  } */
-
-  /* #logo {
-    display: flex;
-    justify-content: center;
-  } */
 }
 
 /* Desktop: */
@@ -233,37 +190,4 @@ input[type="text"] {
   .col-12 {
     width: 100%;
   }
-
-  /* .ord-1 {
-    order: 1;
-  }
-
-  .ord-2 {
-    order: 2;
-  }
-
-  .ord-3 {
-    order: 3;
-  }
-
-  .hidden {
-    display: flex !important;
-  }
-
-  #auth {
-    justify-content: flex-end;
-  }
-
-  #toggler {
-    display: none;
-  }
-
-  .toggable-items {
-    display: flex;
-    background-color: rgb(216, 193, 119);
-    padding: 0;
-  }
-  a {
-    color: rgb(97, 63, 126);
-  } */
 }
