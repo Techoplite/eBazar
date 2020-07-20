@@ -2,7 +2,7 @@ import React from 'react';
 
 const Logo = () => {
     return (
-        <a href="/" className="" id="logo">
+        <a href="/" id="logo">
             eBazar
         </a>
     );
