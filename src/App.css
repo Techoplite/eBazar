@@ -136,8 +136,13 @@ select:focus {
     display: grid;
   }
 
+  .toggle-link {
+    color: rgb(97, 63, 126);
+  }
   .toggle-items {
     grid-template-areas: "useful-links auth";
+    background-color: rgb(216, 193, 119);
+    justify-content: space-between;
   }
 
   .toggle {
@@ -147,7 +152,6 @@ select:focus {
   .navbar {
     display: grid;
     grid-template-areas: "logo toggle-items toggle-items toggle-items cart";
-    justify-content: space-between;
     background-color: rgb(216, 193, 119);
     border-bottom: 2px solid rgb(172, 154, 95);
   }
@@ -155,11 +159,15 @@ select:focus {
   .useful-links {
     grid-template-areas: "best-sellers deals-of-the-day";
     justify-content: space-around;
+    gap: 15px;
+    margin-left: 20px;
   }
 
   .auth {
     grid-template-areas: "register signin";
     justify-content: space-around;
+    gap: 15px;
+    margin-right: -8px;
   }
 }
 
