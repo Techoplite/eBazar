@@ -8,8 +8,14 @@ div {
 
 /* Smartphones */
 
+span {
+  background-color: white;
+  border-radius: 101px;
+  padding: 1px 3.5px;
+}
+
 .content {
-  background-image: linear-gradient(to bottom, white, rgb(240, 222, 162));
+  background-image: linear-gradient(to bottom, white, rgb(247, 232, 183));
 }
 
 a {
@@ -109,6 +115,13 @@ input[type="text"] {
   transition: box-shadow 0.3s linear;
 }
 
+option {
+  font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  padding: 0.1rem 0.5rem;
+  color: rgb(97, 96, 96);
+}
+
 input[type="text"]:focus {
   box-shadow: 0 0 3px grey;
 }
@@ -130,6 +143,7 @@ select {
   outline: grey;
   margin: 10px 0 15px 0;
   transition: box-shadow 0.5s ease-in-out;
+  padding: 2px;
 }
 
 select:focus {
@@ -145,7 +159,6 @@ select:focus {
 label {
   color: rgb(97, 63, 126);
   text-shadow: 0 0 1px rgb(97, 63, 126);
-
 }
 
 #footer {
@@ -192,7 +205,7 @@ label {
   .useful-links {
     display: flex;
     order: 1;
-    width: 70%;
+    width: 64%;
     gap: 15px;
   }
 
@@ -252,11 +265,12 @@ label {
   }
 
   .useful-links {
-    grid-column: 3 / 10;
+    grid-column: 4 / 11;
     gap: 15px;
   }
 
   .auth {
+    grid-column: 10 / 12;
     gap: 15px;
   }
 
