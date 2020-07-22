@@ -217,7 +217,7 @@ select:focus {
 }
 
 /* Desktop: */
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 812px) {
   .navbar {
     display: grid;
     grid-template-columns: repeat(24, 1fr);
@@ -250,6 +250,11 @@ select:focus {
 
   .aside {
     width: 20%;
+  }
+
+  .filter {
+    flex-direction: column;
+    padding-right: 30px;
   }
 
   .search-form {
