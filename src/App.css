@@ -11,7 +11,7 @@ div {
 a {
   text-decoration: none;
   text-align: center;
-  text-shadow: 0 0  1px rgb(97, 63, 126);
+  text-shadow: 0 0 1px rgb(97, 63, 126);
 }
 
 .navbar {
@@ -109,8 +109,15 @@ input[type="text"]:focus {
   box-shadow: 0 0 3px grey;
 }
 
-#category,
-#department {
+.filter-category,
+.filter-department {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px 15px 15px;
+}
+
+.select-category,
+.select-department {
   border-radius: 5px;
   border: 1.5px solid lightgray;
 }
@@ -123,6 +130,11 @@ select {
 select:focus {
   outline: none;
   box-shadow: 0 0 3px grey;
+}
+.search-form {
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
 }
 
 #footer {
