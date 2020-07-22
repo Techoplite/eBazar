@@ -11,6 +11,7 @@ div {
 a {
   text-decoration: none;
   text-align: center;
+  text-shadow: 0 0  1px rgb(97, 63, 126);
 }
 
 .navbar {
