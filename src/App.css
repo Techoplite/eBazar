@@ -133,16 +133,24 @@ select:focus {
 /* Tablet: */
 @media only screen and (min-width: 600px) {
   .hidden {
-    display: grid;
+    display: inline;
+  }
+
+  .visible {
+    display: inline;
   }
 
   .toggle-link {
+    display: inline;
+    margin: 0 0.2rem;
     color: rgb(97, 63, 126);
   }
   .toggle-items {
-    grid-template-areas: "useful-links auth";
     background-color: rgb(216, 193, 119);
-    justify-content: space-between;
+    display: flex;
+    width: 80%;
+    order: 2;
+    justify-content: flex-end;
   }
 
   .toggle {
@@ -150,27 +158,67 @@ select:focus {
   }
 
   .navbar {
-    display: grid;
-    grid-template-areas: "logo toggle-items toggle-items toggle-items cart";
+    display: flex;
     background-color: rgb(216, 193, 119);
     border-bottom: 2px solid rgb(172, 154, 95);
+    grid-template-rows: 1fr;
   }
 
   .useful-links {
-    grid-template-areas: "best-sellers deals-of-the-day";
-    justify-content: space-around;
-    gap: 15px;
-    margin-left: 20px;
+    display: flex;
+    order: 1;
+    width: 70%;
   }
 
   .auth {
-    grid-template-areas: "register signin";
-    justify-content: space-around;
-    gap: 15px;
-    margin-right: -8px;
+    display: flex;
+    order: 2;
+  }
+
+  .logo {
+    display: inline;
+    order: 1;
+    grid-column: 1 / span 2;
+  }
+
+  .cart {
+    display: grid;
+    grid-column: 12 / 13;
+    order: 3;
+    place-items: center;
+    justify-content: end;
   }
 }
 
 /* Desktop: */
 @media only screen and (min-width: 800px) {
+  .navbar {
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+  }
+
+  .logo {
+    grid-column: 1 / 2;
+  }
+
+  .cart {
+    grid-column: 24 /25;
+  }
+
+  .toggle-items {
+    grid-area: auto;
+    grid-column: 2 / 24;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+  }
+
+  .useful-links {
+    grid-column: 3 / 10;
+    gap: 15px;
+  }
+
+  .auth {
+    gap: 15px;
+  }
 }
