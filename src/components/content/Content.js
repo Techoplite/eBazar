@@ -3,7 +3,9 @@ import Aside from './aside/Aside';
 
 const Content = () => {
     return (
+        <div className="content">
             <Aside />
+        </div>
     );
 }
 

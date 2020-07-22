@@ -8,6 +8,10 @@ div {
 
 /* Smartphones */
 
+.content {
+  background-image: linear-gradient(to bottom, white, rgb(216, 193, 119));
+}
+
 a {
   text-decoration: none;
   text-align: center;
@@ -119,10 +123,11 @@ input[type="text"]:focus {
 .select-category,
 .select-department {
   border-radius: 5px;
-  border: 1.5px solid lightgray;
+  border: 1.5px solid rgb(192, 191, 191);
 }
 
 select {
+  outline: grey;
   margin: 10px 0 15px 0;
   transition: box-shadow 0.5s ease-in-out;
 }
@@ -137,10 +142,17 @@ select:focus {
   padding-top: 15px;
 }
 
+label {
+  color: rgb(97, 63, 126);
+  text-shadow: 0 0 1px rgb(97, 63, 126);
+
+}
+
 #footer {
   text-align: center;
   background-color: rgb(216, 193, 119);
   color: rgb(97, 63, 126);
+  border-top: 2px solid rgb(172, 154, 95);
 }
 
 /* Tablet: */
