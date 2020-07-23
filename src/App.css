@@ -14,17 +14,39 @@ div {
   padding: 15px;
 }
 
+.item-details {
+  height: 100px;
+  padding-left: 15px;
+  font-size: 1rem;
+}
+
+.item-name {
+  max-height: 40px;
+  overflow: hidden;
+}
+
+.item-price {
+  font-size: 1.5rem;
+}
+
+.item {
+}
+
 img {
-  width: 34%;
+  display: block;
+  max-width: 230px;
+  max-height: 70px;
+  width: auto;
+  height: auto;
   border-radius: 5px;
   border: 2px solid lightgrey;
 }
 
 img:hover {
-  width: 40%;
 }
 
 .item {
+  display: flex;
   background-color: white;
   padding: 15px;
   border-bottom: 2px solid lightgrey;
@@ -34,7 +56,6 @@ span {
   background-color: white;
   border-radius: 101px;
   padding: 1px 3.5px;
-  display: flex;
 }
 
 .content {
