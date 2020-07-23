@@ -20,6 +20,10 @@ img {
   border: 2px solid lightgrey;
 }
 
+img:hover {
+  width: 40%;
+}
+
 .item {
   background-color: white;
   padding: 15px;
