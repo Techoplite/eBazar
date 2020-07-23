@@ -9,6 +9,7 @@ export const FETCH_CATEGORIES_REQUEST = 'FETCH_CATEGORIES_REQUEST'
 export const FETCH_CATEGORIES_SUCCESS = 'FETCH_CATEGORIES_SUCCESS'
 export const FETCH_CATEGORIES_FAILURE = 'FETCH_CATEGORIES_FAILURE'
 export const TOGGLE = 'TOGGLE'
+export const SET_MINIMUM_PRICE = 'SET_MINIMUM_PRICE'
 
 
 /*
@@ -32,13 +33,13 @@ export const fetchCategoriesRequest = () => {
 }
 
 
-export const fetchCategoriesSuccess = (categories) => {
+export const fetchCategoriesSuccess = categories => {
     return {
         type: FETCH_CATEGORIES_SUCCESS,
         payload: categories
     }
 }
-export const fetchCategoriesFailure = (error) => {
+export const fetchCategoriesFailure = error => {
     return {
         type: FETCH_CATEGORIES_FAILURE,
         payload: error
@@ -62,7 +63,7 @@ export const fetchCategories = () => {
 }
 
 
-export const selectDepartment = (value) => {
+export const selectDepartment = value => {
     return {
         type: SELECT_DEPARTMENT,
         payload: value
@@ -74,5 +75,12 @@ export const toggle = toggler => {
     return {
         type: TOGGLE,
         payload: toggler
+    }
+}
+
+export const setMinimumPrice = value => {
+    return {
+        type: SET_MINIMUM_PRICE,
+        payload: value
     }
 }

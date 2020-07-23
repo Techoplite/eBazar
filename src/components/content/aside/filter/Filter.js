@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
-import { selectCategory, fetchCategories, selectDepartment } from '../../../../actions'
+import * as actions from '../../../../actions'
 
 
 
@@ -31,6 +31,8 @@ const Filter = (props) => {
                 return props.selectCategory(props.categories, event.target.value)
             case "department":
                 return props.selectDepartment(event.target.value)
+            case "minimum-price":
+                return props.setMinimumPrice(event.target.value)
         }
 
 
@@ -59,8 +61,8 @@ const Filter = (props) => {
                 </select>
             </form>}
             <form className="filter-price">
-                <label htmlFor="minimum-price">Min. Price: minPrice£</label>
-                <input type="range" min="1" max="100" value="" className="slider col-xs-12" id="minimum-price" onChange={(event) => handleChange(event)} />
+                <label htmlFor="minimum-price">Min. Price: £{props.minimumPrice}</label>
+                <input type="range" min="1" max="100" value={props.minimumPrice} className="slider col-xs-12" id="minimum-price" onChange={(event) => handleChange(event)} />
                 <label htmlFor="maximum-price">Max. Price: maxPrice£</label>
                 <input type="range" min="100" max="1000" value="{maxPrice}" className="slider col-xs-12" id="maximum-price" onChange={(event) => handleChange(event)} />
             </form>
@@ -73,20 +75,24 @@ const mapStateToProps = (state) => {
         categories: state.categories,
         currentCategory: state.currentCategory,
         currentDepartment: state.currentDepartment,
-        departments: state.departments
+        departments: state.departments,
+        minimumPrice: state.minimumPrice
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
         selectCategory: (categories, value) => {
-            dispatch(selectCategory(categories, value))
+            dispatch(actions.selectCategory(categories, value))
         },
         fetchCategories: () => {
-            dispatch(fetchCategories())
+            dispatch(actions.fetchCategories())
         },
-        selectDepartment: (value) => {
-            dispatch(selectDepartment(value))
+        selectDepartment: value => {
+            dispatch(actions.selectDepartment(value))
+        },
+        setMinimumPrice: value => {
+            dispatch(actions.setMinimumPrice(value))
         }
 
     }
