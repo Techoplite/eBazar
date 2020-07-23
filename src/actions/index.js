@@ -17,7 +17,6 @@ action creators
 
 export const selectCategory = (categories, value) => {
     const categoryObject = categories.find(category => category.value === value)
-    console.log('categoryObject :>> ', categoryObject);
     const departments = []
     categoryObject.departments.map(department => departments.push(department))
     return {
