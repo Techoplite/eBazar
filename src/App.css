@@ -8,15 +8,33 @@ div {
 
 /* Smartphones */
 
+.main-content {
+  /* background-color: red; */
+  width: auto;
+  padding: 15px;
+}
+
+img {
+  width: 34%;
+  border-radius: 5px;
+  border: 2px solid lightgrey;
+}
+
+.item {
+  background-color: white;
+  padding: 15px;
+  border-bottom: 2px solid lightgrey;
+}
+
 span {
   background-color: white;
   border-radius: 101px;
   padding: 1px 3.5px;
+  display: flex;
 }
 
 .content {
   background-image: linear-gradient(to bottom, white, rgb(247, 232, 183));
-  height: 800px; /* TEMPORARY */
 }
 
 a {
