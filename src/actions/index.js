@@ -4,6 +4,7 @@ action types
 */
 
 export const SELECT_CATEGORY = 'SELECT_CATEGORY'
+export const SELECT_DEPARTMENT = 'SELECT_DEPARTMENT'
 export const FETCH_CATEGORIES_REQUEST = 'FETCH_CATEGORIES_REQUEST'
 export const FETCH_CATEGORIES_SUCCESS = 'FETCH_CATEGORIES_SUCCESS'
 export const FETCH_CATEGORIES_FAILURE = 'FETCH_CATEGORIES_FAILURE'
@@ -16,6 +17,7 @@ action creators
 
 export const selectCategory = (categories, value) => {
     const categoryObject = categories.find(category => category.value === value)
+    console.log('categoryObject :>> ', categoryObject);
     const departments = []
     categoryObject.departments.map(department => departments.push(department))
     return {
@@ -60,6 +62,13 @@ export const fetchCategories = () => {
     }
 }
 
+
+export const selectDepartment = (value) => {
+    return {
+        type: SELECT_DEPARTMENT,
+        payload: value
+    }
+}
 
 
 export const toggle = toggler => {

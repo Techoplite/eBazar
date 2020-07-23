@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
-import { selectCategory, fetchCategories } from '../../../../actions'
+import { selectCategory, fetchCategories, selectDepartment } from '../../../../actions'
 
 
 
@@ -26,7 +26,14 @@ const Filter = (props) => {
 
     const handleChange = event => {
         event.preventDefault()
-        props.selectCategory(props.categories, event.target.value)
+        switch (event.target.id) {
+            case "category":
+                return props.selectCategory(props.categories, event.target.value)
+            case "department":
+                return props.selectDepartment(event.target.value)
+        }
+
+
     }
 
     useEffect(() => {
@@ -44,7 +51,7 @@ const Filter = (props) => {
             </form>
             {props.currentCategory !== 'any' && <form className="filter-department">
                 <label htmlFor="department">Department</label>
-                <select className="select-department" id='department' name="department" size="5" value='{department}' onChange='{handleDepartment}'>
+                <select className="select-department" id='department' name="department" size="5" value={props.currentDepartment} onChange={(event) => handleChange(event)}>
                     <option key='any' value='any'>--- Any ---</option>
                     {props.departments.map(department =>
                         <option key={department.value} value={department.value}>{department.name}</option>
@@ -65,6 +72,7 @@ const mapStateToProps = (state) => {
     return {
         categories: state.categories,
         currentCategory: state.currentCategory,
+        currentDepartment: state.currentDepartment,
         departments: state.departments
     }
 }
@@ -76,6 +84,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         fetchCategories: () => {
             dispatch(fetchCategories())
+        },
+        selectDepartment: (value) => {
+            dispatch(selectDepartment(value))
         }
 
     }
