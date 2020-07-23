@@ -8,6 +8,22 @@ const ItemsList = () => {
             <Item />
             <Item />
             <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
         </div>
     );
 }

@@ -47,9 +47,11 @@ img:hover {
 
 .item {
   display: flex;
+  height: 70px;
   background-color: white;
   padding: 15px;
   border-bottom: 2px solid lightgrey;
+  border-radius: 20px 0 40px 0;
 }
 
 span {
@@ -293,6 +295,22 @@ label {
 
 /* Desktop: */
 @media only screen and (min-width: 812px) {
+  img {
+    max-height: none;
+  }
+
+  .item {
+    height: auto;
+  }
+
+  .item-details {
+    height: auto;
+  }
+
+  .content {
+    display: flex;
+  }
+
   .navbar {
     display: grid;
     grid-template-columns: repeat(24, 1fr);
