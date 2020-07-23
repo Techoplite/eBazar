@@ -58,12 +58,12 @@ const Filter = (props) => {
                     )}
                 </select>
             </form>}
-            {/* <form id="filter-price">
-                <label htmlFor="minimum-price">Min. Price: {minPrice}£</label>
-                <input type="range" min="1" max="100" value={minPrice} className="slider col-xs-12" id="minimum-price" onChange={handleMinPrice} />
-                <label htmlFor="maximum-price">Max. Price: {maxPrice}£</label>
-                <input type="range" min="100" max="1000" value={maxPrice} className="slider col-xs-12" id="maximum-price" onChange={handleMaxPrice} />
-            </form> */}
+            <form className="filter-price">
+                <label htmlFor="minimum-price">Min. Price: minPrice£</label>
+                <input type="range" min="1" max="100" value="" className="slider col-xs-12" id="minimum-price" onChange={(event) => handleChange(event)} />
+                <label htmlFor="maximum-price">Max. Price: maxPrice£</label>
+                <input type="range" min="100" max="1000" value="{maxPrice}" className="slider col-xs-12" id="maximum-price" onChange={(event) => handleChange(event)} />
+            </form>
         </div>
     );
 }

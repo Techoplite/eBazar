@@ -128,7 +128,8 @@ input[type="text"]:focus {
 }
 
 .filter-category,
-.filter-department {
+.filter-department,
+.filter-price {
   display: flex;
   flex-direction: column;
   padding: 0 15px 15px 15px;
@@ -233,12 +234,17 @@ label {
   .filter-department {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 45%;
     padding: 0 15px 15px 15px;
   }
 
   .filter {
     display: flex;
+    flex-flow: wrap;
+  }
+
+  .filter-price {
+    width: 100%;
   }
 }
 
