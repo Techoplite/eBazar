@@ -7,7 +7,8 @@ const initState = {
     currentDepartment: 'any',
     toggler: 'hidden',
     error: '',
-    minimumPrice: 0
+    minimumPrice: 0,
+    maximumPrice: 0
 
 }
 
@@ -26,7 +27,9 @@ const rootReducer = (state = initState, action) => {
         case actions.TOGGLE:
             return { ...state, toggler: action.payload }
         case actions.SET_MINIMUM_PRICE:
-            return { ...state, minimumPrice: action.payload}
+            return { ...state, minimumPrice: action.payload }
+        case actions.SET_MAXIMUM_PRICE:
+            return { ...state, maximumPrice: action.payload}
         default:
             return state
     }

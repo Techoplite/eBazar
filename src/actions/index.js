@@ -10,6 +10,7 @@ export const FETCH_CATEGORIES_SUCCESS = 'FETCH_CATEGORIES_SUCCESS'
 export const FETCH_CATEGORIES_FAILURE = 'FETCH_CATEGORIES_FAILURE'
 export const TOGGLE = 'TOGGLE'
 export const SET_MINIMUM_PRICE = 'SET_MINIMUM_PRICE'
+export const SET_MAXIMUM_PRICE = 'SET_MAXIMUM_PRICE'
 
 
 /*
@@ -81,6 +82,13 @@ export const toggle = toggler => {
 export const setMinimumPrice = value => {
     return {
         type: SET_MINIMUM_PRICE,
+        payload: value
+    }
+}
+
+export const setMaximumPrice = value => {
+    return {
+        type: SET_MAXIMUM_PRICE,
         payload: value
     }
 }

@@ -33,6 +33,8 @@ const Filter = (props) => {
                 return props.selectDepartment(event.target.value)
             case "minimum-price":
                 return props.setMinimumPrice(event.target.value)
+            case "maximum-price":
+                return props.setMaximumPrice(event.target.value)
         }
 
 
@@ -63,8 +65,8 @@ const Filter = (props) => {
             <form className="filter-price">
                 <label htmlFor="minimum-price">Min. Price: £{props.minimumPrice}</label>
                 <input type="range" min="1" max="100" value={props.minimumPrice} className="slider col-xs-12" id="minimum-price" onChange={(event) => handleChange(event)} />
-                <label htmlFor="maximum-price">Max. Price: maxPrice£</label>
-                <input type="range" min="100" max="1000" value="{maxPrice}" className="slider col-xs-12" id="maximum-price" onChange={(event) => handleChange(event)} />
+                <label htmlFor="maximum-price">Max. Price: £{props.maximumPrice}</label>
+                <input type="range" min="100" max="1000" value={props.maximumPrice} className="slider col-xs-12" id="maximum-price" onChange={(event) => handleChange(event)} />
             </form>
         </div>
     );
@@ -76,7 +78,8 @@ const mapStateToProps = (state) => {
         currentCategory: state.currentCategory,
         currentDepartment: state.currentDepartment,
         departments: state.departments,
-        minimumPrice: state.minimumPrice
+        minimumPrice: state.minimumPrice,
+        maximumPrice: state.maximumPrice
     }
 }
 
@@ -93,6 +96,9 @@ const mapDispatchToProps = dispatch => {
         },
         setMinimumPrice: value => {
             dispatch(actions.setMinimumPrice(value))
+        },
+        setMaximumPrice: value => {
+            dispatch(actions.setMaximumPrice(value))
         }
 
     }
