@@ -16,6 +16,7 @@ span {
 
 .content {
   background-image: linear-gradient(to bottom, white, rgb(247, 232, 183));
+  height: 800px; /* TEMPORARY */
 }
 
 a {
