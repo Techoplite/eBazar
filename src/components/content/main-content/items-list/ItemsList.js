@@ -19,17 +19,18 @@ const ItemsList = () => {
     useEffect(() => {
         dispatch(actions.fetchItems(currentCategory, currentDepartment), console.log('currentCategory :>> ', currentCategory), console.log('currentDepartment :>> ', currentDepartment))
 
-}, [])
+    }, [])
 
-return (
-    <div className="items-list">
-        {items && items.map(item =>
-            <li key={item.name}>
-                <Item name={item.name} value={item.value} />
-            </li>
-        )}
-    </div>
-);
+    return (
+        <div className="items-list">
+            {items && items.map(item =>
+                <div className="item" jey={item.name}>
+
+                    <Item name={item.name} value={item.value} />
+                </div>
+            )}
+        </div>
+    );
 }
 
 export default ItemsList;
