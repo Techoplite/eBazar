@@ -5,6 +5,18 @@ import * as actions from '../../../../actions'
 
 
 const Filter = () => {
+
+    const mapState = (state) => {
+        return {
+            categories: state.categories,
+            currentCategory: state.currentCategory,
+            currentDepartment: state.currentDepartment,
+            departments: state.departments,
+            minimumPrice: state.minimumPrice,
+            maximumPrice: state.maximumPrice
+        }
+    }
+
     const dispatch = useDispatch()
     const {
         categories,
@@ -40,7 +52,7 @@ const Filter = () => {
         <div className="filter">
             <form className="filter-category">
                 <label htmlFor="category">Category</label>
-                <select className="select-category" id="category" name="category" size="5" value={currentCategory} onChange={(event) => handleChange(event)}>
+                <select className="select-category" id="category" name="category" size="5" value={currentCategory.value} onChange={(event) => handleChange(event)}>
                     {categories.map(category => <option key={category.value} value={category.value}>{category.name}</option>)}
                 </select>
             </form>
@@ -63,16 +75,7 @@ const Filter = () => {
     );
 }
 
-const mapState = (state) => {
-    return {
-        categories: state.categories,
-        currentCategory: state.currentCategory,
-        currentDepartment: state.currentDepartment,
-        departments: state.departments,
-        minimumPrice: state.minimumPrice,
-        maximumPrice: state.maximumPrice
-    }
-}
+
 
 
 export default Filter;

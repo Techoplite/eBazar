@@ -8,14 +8,15 @@ const initState = {
     toggler: 'hidden',
     error: '',
     minimumPrice: 0,
-    maximumPrice: 0
+    maximumPrice: 0,
+    items: []
 
 }
 
 const rootReducer = (state = initState, action) => {
     switch (action.type) {
-        case actions.SELECT_CATEGORY:
-            return { ...state, currentCategory: action.payload.value, departments: action.payload.departments, currentDepartment: 'any' }
+        case actions.SET_CATEGORY:
+            return { ...state, currentCategory: action.payload.category, departments: action.payload.departments, currentDepartment: 'any' }
         case actions.FETCH_CATEGORIES_REQUEST:
             return { ...state, loading: true }
         case actions.FETCH_CATEGORIES_SUCCESS:
@@ -30,6 +31,12 @@ const rootReducer = (state = initState, action) => {
             return { ...state, minimumPrice: action.payload }
         case actions.SET_MAXIMUM_PRICE:
             return { ...state, maximumPrice: action.payload }
+        case actions.FETCH_ITEMS_REQUEST:
+            return { ...state, loading: true }
+        case actions.FETCH_ITEMS_SUCCESS:
+            return { ...state, loading: false, items: action.payload }
+        case actions.FETCH_ITEMS_FAILURE:
+            return { ...state, loading: false, items: action.payload }
         default:
             return state
     }
