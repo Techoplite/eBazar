@@ -35,7 +35,8 @@ export const setCategory = (category, departments) => {
 }
 
 export const selectDepartment = (currentCategory, value) => async dispatch => {
-    const departmentObject = currentCategory.departments.filter(department => department.value === value)
+    const departmentObject = currentCategory.departments.find(department => department.value === value)
+    console.log('departmentObject :>> ', departmentObject);
     dispatch(setDepartment(departmentObject))
     dispatch(fetchItems(currentCategory, departmentObject))
 
@@ -46,7 +47,11 @@ export const selectCategory = (categories, value) => async dispatch => {
     const departments = []
     categoryObject.departments.map(department => departments.push(department))
     dispatch(setCategory(categoryObject, departments))
-    dispatch(fetchItems(categoryObject, "any"))
+    dispatch(fetchItems(categoryObject, {
+        "id": 0,
+        "value": "any",
+        "name": "--- Any ---",
+    }))
 
 }
 
@@ -139,11 +144,12 @@ export const fetchItems = (category, department) => async dispatch => {
                 dispatch(fetchItemsFailure(error.message))
             })
     }
-    if (category.value !== "any" && department.value !== undefined || department.value !== "any") {
-        return axios.get(`http://localhost:7000/items?department=${department.id}`)
+    if (category.value !== "any" && department.value !== undefined && department.value !== "any") {
+        return axios.get(`http://localhost:7000/items?category=${category.id}&department=${department.id}`)
             .then(response => {
                 const items = response.data
                 console.log("department selected");
+                console.log('department.value :>> ', department.value);
                 dispatch(fetchItemsSuccess(items),
                 )
             }
@@ -156,7 +162,7 @@ export const fetchItems = (category, department) => async dispatch => {
         .then(response => {
             const items = response.data
             console.log("nothing selected");
-
+            console.log('department.value :>> ', department.value);
             dispatch(fetchItemsSuccess(items),
             )
         }
