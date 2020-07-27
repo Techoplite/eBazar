@@ -4,7 +4,7 @@ import * as actions from '../../../../actions'
 
 
 
-const Filter = (props) => {
+const Filter = () => {
     const dispatch = useDispatch()
     const {
         categories,
