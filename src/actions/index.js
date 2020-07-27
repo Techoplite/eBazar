@@ -4,7 +4,7 @@ action types
 */
 
 export const SET_CATEGORY = 'SET_CATEGORY'
-export const SELECT_DEPARTMENT = 'SELECT_DEPARTMENT'
+export const SET_DEPARTMENT = 'SET_DEPARTMENT'
 export const FETCH_CATEGORIES_REQUEST = 'FETCH_CATEGORIES_REQUEST'
 export const FETCH_CATEGORIES_SUCCESS = 'FETCH_CATEGORIES_SUCCESS'
 export const FETCH_CATEGORIES_FAILURE = 'FETCH_CATEGORIES_FAILURE'
@@ -20,11 +20,25 @@ export const FETCH_ITEMS_FAILURE = 'FETCH_ITEMS_FAILURE'
 action creators
 */
 
+export const setDepartment = department => {
+    return {
+        type: SET_DEPARTMENT,
+        payload: department
+    }
+}
+
 export const setCategory = (category, departments) => {
     return {
         type: SET_CATEGORY,
         payload: { category, departments }
     }
+}
+
+export const selectDepartment = (currentCategory, value) => async dispatch => {
+    const departmentObject = currentCategory.departments.filter(department => department.value === value)
+    dispatch(setDepartment(departmentObject))
+    dispatch(fetchItems(currentCategory, departmentObject))
+
 }
 
 export const selectCategory = (categories, value) => async dispatch => {
@@ -33,7 +47,7 @@ export const selectCategory = (categories, value) => async dispatch => {
     categoryObject.departments.map(department => departments.push(department))
     dispatch(setCategory(categoryObject, departments))
     dispatch(fetchItems(categoryObject, "any"))
-    
+
 }
 
 export const fetchCategoriesRequest = () => {
@@ -67,14 +81,6 @@ export const fetchCategories = () => async dispatch => {
         .catch(error => {
             dispatch(fetchCategoriesFailure(error.message))
         })
-}
-
-
-export const selectDepartment = value => {
-    return {
-        type: SELECT_DEPARTMENT,
-        payload: value
-    }
 }
 
 
@@ -120,10 +126,11 @@ export const fetchItemsFailure = error => {
 }
 
 export const fetchItems = (category, department) => async dispatch => {
-    if (category !== undefined || category !== "any") {
-        axios.get(`http://localhost:7000/items?category=${category.id}`)
+    if (category.value !== "any" && department.value === "any" || department.value === undefined) {
+        return axios.get(`http://localhost:7000/items?category=${category.id}`)
             .then(response => {
                 const items = response.data
+                console.log("category selected");
                 dispatch(fetchItemsSuccess(items),
                 )
             }
@@ -132,10 +139,11 @@ export const fetchItems = (category, department) => async dispatch => {
                 dispatch(fetchItemsFailure(error.message))
             })
     }
-    else if (category === undefined || category === "any" || department === undefined || department === "any") {
-        axios.get('http://localhost:7000/items')
+    if (category.value !== "any" && department.value !== undefined || department.value !== "any") {
+        return axios.get(`http://localhost:7000/items?department=${department.id}`)
             .then(response => {
                 const items = response.data
+                console.log("department selected");
                 dispatch(fetchItemsSuccess(items),
                 )
             }
@@ -144,16 +152,16 @@ export const fetchItems = (category, department) => async dispatch => {
                 dispatch(fetchItemsFailure(error.message))
             })
     }
-    else if (department !== undefined || department !== "any") {
-        axios.get(`http://localhost:7000/items?department=${department.id}`)
-            .then(response => {
-                const items = response.data
-                dispatch(fetchItemsSuccess(items),
-                )
-            }
+    return axios.get('http://localhost:7000/items')
+        .then(response => {
+            const items = response.data
+            console.log("nothing selected");
+
+            dispatch(fetchItemsSuccess(items),
             )
-            .catch(error => {
-                dispatch(fetchItemsFailure(error.message))
-            })
-    }
+        }
+        )
+        .catch(error => {
+            dispatch(fetchItemsFailure(error.message))
+        })
 }

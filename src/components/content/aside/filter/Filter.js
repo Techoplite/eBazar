@@ -33,7 +33,7 @@ const Filter = () => {
             case "category":
                 return dispatch(actions.selectCategory(categories, event.target.value))
             case "department":
-                return dispatch(actions.selectDepartment(event.target.value))
+                return dispatch(actions.selectDepartment(currentCategory, event.target.value))
             case "minimum-price":
                 return dispatch(actions.setMinimumPrice(event.target.value))
             case "maximum-price":
@@ -56,9 +56,9 @@ const Filter = () => {
                     {categories.map(category => <option key={category.value} value={category.value}>{category.name}</option>)}
                 </select>
             </form>
-            {currentCategory !== 'any' && <form className="filter-department">
+            {currentCategory.value !== 'any' && <form className="filter-department">
                 <label htmlFor="department">Department</label>
-                <select className="select-department" id='department' name="department" size="5" value={currentDepartment} onChange={(event) => handleChange(event)}>
+                <select className="select-department" id='department' name="department" size="5" value={currentDepartment.value} onChange={(event) => handleChange(event)}>
                     <option key='any' value='any'>--- Any ---</option>
                     {departments.map(department =>
                         <option key={department.value} value={department.value}>{department.name}</option>

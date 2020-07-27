@@ -3,8 +3,17 @@ import * as actions from './../actions'
 const initState = {
     loading: false,
     categories: [],
-    currentCategory: 'any',
-    currentDepartment: 'any',
+    currentCategory: {
+        "id": 1,
+        "value": "any",
+        "name": "--- Any ---",
+        "departments": []
+    },
+    currentDepartment: {
+        "id": 0,
+        "value": "any",
+        "name": "--- Any ---",
+    },
     toggler: 'hidden',
     error: '',
     minimumPrice: 0,
@@ -16,14 +25,20 @@ const initState = {
 const rootReducer = (state = initState, action) => {
     switch (action.type) {
         case actions.SET_CATEGORY:
-            return { ...state, currentCategory: action.payload.category, departments: action.payload.departments, currentDepartment: 'any' }
+            return {
+                ...state, currentCategory: action.payload.category, departments: action.payload.departments, currentDepartment: {
+                    "id": 0,
+                    "value": "any",
+                    "name": "--- Any ---",
+                }
+            }
         case actions.FETCH_CATEGORIES_REQUEST:
             return { ...state, loading: true }
         case actions.FETCH_CATEGORIES_SUCCESS:
             return { ...state, loading: false, categories: action.payload }
         case actions.FETCH_CATEGORIES_FAILURE:
             return { ...state, loading: false, categories: action.payload }
-        case actions.SELECT_DEPARTMENT:
+        case actions.SET_DEPARTMENT:
             return { ...state, currentDepartment: action.payload }
         case actions.TOGGLE:
             return { ...state, toggler: action.payload }

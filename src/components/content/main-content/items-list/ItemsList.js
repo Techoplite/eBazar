@@ -17,18 +17,19 @@ const ItemsList = () => {
     const { items, currentCategory, currentDepartment } = useSelector(mapState)
 
     useEffect(() => {
-        dispatch(actions.fetchItems(currentCategory, currentDepartment))
-    }, [])
+        dispatch(actions.fetchItems(currentCategory, currentDepartment), console.log('currentCategory :>> ', currentCategory), console.log('currentDepartment :>> ', currentDepartment))
 
-    return (
-        <div className="items-list">
-            {items && items.map(item =>
-                <li key={item.name}>
-                    <Item name={item.name} value={item.value} />
-                </li>
-            )}
-        </div>
-    );
+}, [])
+
+return (
+    <div className="items-list">
+        {items && items.map(item =>
+            <li key={item.name}>
+                <Item name={item.name} value={item.value} />
+            </li>
+        )}
+    </div>
+);
 }
 
 export default ItemsList;
