@@ -6,24 +6,6 @@ import * as actions from '../../../../actions'
 
 const Filter = (props) => {
 
-    // const [minPrice, setMinPrice] = useState(0)
-    // const handleMinPrice = event => {
-    //     setMinPrice(event.target.value)
-    // }
-
-    // const [maxPrice, setMaxPrice] = useState(0)
-    // const handleMaxPrice = event => {
-    //     setMaxPrice(event.target.value)
-    // }
-
-    // const [department, setDepartment] = useState("select")
-    // const handleDepartment = event => {
-    //     console.log(event.target.value)
-    //     setDepartment(event.target.value)
-    // }
-    // console.log(props);
-
-
     const handleChange = event => {
         event.preventDefault()
         switch (event.target.id) {
