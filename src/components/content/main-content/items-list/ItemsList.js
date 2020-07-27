@@ -24,8 +24,7 @@ const ItemsList = () => {
     return (
         <div className="items-list">
             {items && items.map(item =>
-                <div className="item" jey={item.name}>
-
+                <div className="item" key={item.name}>
                     <Item name={item.name} value={item.value} />
                 </div>
             )}
