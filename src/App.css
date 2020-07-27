@@ -2,9 +2,9 @@ body {
   font-size: 1.1rem;
 }
 
-div {
-  /* border: 0.2px solid red; */
-}
+/* div {
+  border: 0.2px solid red;
+} */
 
 /* Smartphones */
 
@@ -37,9 +37,6 @@ img {
   height: auto;
   border-radius: 5px;
   border: 2px solid lightgrey;
-}
-
-img:hover {
 }
 
 .item {
