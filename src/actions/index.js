@@ -47,20 +47,34 @@ export const fetchCategoriesFailure = error => {
     }
 }
 
-export const fetchCategories = () => {
-    return function (dispatch) {
-        dispatch(fetchCategoriesRequest())
-        axios.get('http://localhost:7000/categories')
-            .then(response => {
-                const categories = response.data
-                dispatch(fetchCategoriesSuccess(categories),
-                )
-            }
+// export const fetchCategories = () => {
+//     return function (dispatch) {
+//         dispatch(fetchCategoriesRequest())
+//         axios.get('http://localhost:7000/categories')
+//             .then(response => {
+//                 const categories = response.data
+//                 dispatch(fetchCategoriesSuccess(categories),
+//                 )
+//             }
+//             )
+//             .catch(error => {
+//                 dispatch(fetchCategoriesFailure(error.message))
+//             })
+//     }
+// }
+
+export const fetchCategories = () => async dispatch => {
+    dispatch(fetchCategoriesRequest())
+    axios.get('http://localhost:7000/categories')
+        .then(response => {
+            const categories = response.data
+            dispatch(fetchCategoriesSuccess(categories),
             )
-            .catch(error => {
-                dispatch(fetchCategoriesFailure(error.message))
-            })
-    }
+        }
+        )
+        .catch(error => {
+            dispatch(fetchCategoriesFailure(error.message))
+        })
 }
 
 
