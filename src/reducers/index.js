@@ -19,7 +19,8 @@ const initState = {
     minimumPrice: 0,
     maximumPrice: 0,
     items: [],
-    minimumAvailablePrice: 0
+    minimumAvailablePrice: 0,
+    maximumAvailablePrice: 0,
 
 }
 
@@ -55,6 +56,8 @@ const rootReducer = (state = initState, action) => {
             return { ...state, loading: false, items: action.payload }
         case actions.GET_MINIMUM_AVAILABLE_PRICE:
             return { ...state, minimumAvailablePrice: action.payload, minimumPrice: action.payload }
+        case actions.GET_MAXIMUM_AVAILABLE_PRICE:
+            return { ...state, maximumAvailablePrice: action.payload, maximumPrice: action.payload }
         default:
             return state
     }

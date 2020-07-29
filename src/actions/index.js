@@ -15,6 +15,7 @@ export const FETCH_ITEMS_REQUEST = 'FETCH_ITEMS_REQUEST'
 export const FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS'
 export const FETCH_ITEMS_FAILURE = 'FETCH_ITEMS_FAILURE'
 export const GET_MINIMUM_AVAILABLE_PRICE = 'GET_MINIMUM_AVAILABLE_PRICE'
+export const GET_MAXIMUM_AVAILABLE_PRICE = 'GET_MAXIMUM_AVAILABLE_PRICE'
 
 
 /*
@@ -113,6 +114,7 @@ export const fetchItemsRequest = () => {
 export const loadItemData = items => async dispatch => {
     dispatch(fetchItemsSuccess(items))
     dispatch(getMinimumAvailablePrice(items))
+    dispatch(getMaximumAvailablePrice(items))
 
 }
 
@@ -170,11 +172,20 @@ export const getMinimumAvailablePrice = items => {
     let prices = []
     items.map(item => prices.push(item.price))
     prices.sort(function (a, b) { return a - b })
-    console.log('prices :>> ', prices);
     const value = prices[0]
-    console.log('value :>> ', value);
     return {
         type: GET_MINIMUM_AVAILABLE_PRICE,
+        payload: value
+    }
+}
+
+export const getMaximumAvailablePrice = items => {
+    let prices = []
+    items.map(item => prices.push(item.price))
+    prices.sort(function (a, b) { return b - a })
+    const value = prices[0]
+    return {
+        type: GET_MAXIMUM_AVAILABLE_PRICE,
         payload: value
     }
 }
