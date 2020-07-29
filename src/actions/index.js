@@ -38,7 +38,6 @@ export const setCategory = (category, departments) => {
 export const selectDepartment = (currentCategory, value) => async dispatch => {
     const departmentObject = currentCategory.departments.find(department => department.value === value)
     dispatch(setDepartment(departmentObject))
-    // dispatch(fetchItems(currentCategory, departmentObject)) 99% NOT NEEDED
 
 }
 
@@ -47,12 +46,6 @@ export const selectCategory = (categories, value) => async dispatch => {
     const departments = []
     categoryObject.departments.map(department => departments.push(department))
     dispatch(setCategory(categoryObject, departments))
-    // dispatch(fetchItems(categoryObject, {
-    //     "id": 0,
-    //     "value": "any",
-    //     "name": "--- Any ---",
-    // })) 99% NOT NEEDED
-
 }
 
 export const fetchCategoriesRequest = () => {
@@ -164,7 +157,7 @@ export const fetchItems = (category, department) => async dispatch => {
     return axios.get('http://localhost:7000/items')
         .then(response => {
             const items = response.data
-            dispatch(fetchItemsSuccess(items),
+            dispatch(loadItemData(items),
             )
         }
         )
