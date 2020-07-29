@@ -6,7 +6,7 @@ const Item = (props) => {
             <img src={require("./laptop.jpg")} alt="" />
             <div className="item-details">
                 <div className="item-name">{props.name}</div>
-                <div className="item-price">£375.00</div>
+                <div className="item-price">{props.price}</div>
             </div>
         </Fragment>
     );

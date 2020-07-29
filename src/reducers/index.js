@@ -18,7 +18,8 @@ const initState = {
     error: '',
     minimumPrice: 0,
     maximumPrice: 0,
-    items: []
+    items: [],
+    minimumAvailablePrice: 0
 
 }
 
@@ -52,6 +53,8 @@ const rootReducer = (state = initState, action) => {
             return { ...state, loading: false, items: action.payload }
         case actions.FETCH_ITEMS_FAILURE:
             return { ...state, loading: false, items: action.payload }
+        case actions.GET_MINIMUM_AVAILABLE_PRICE:
+            return { ...state, minimumAvailablePrice: action.payload, minimumPrice: action.payload }
         default:
             return state
     }

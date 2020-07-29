@@ -9,7 +9,7 @@ const ItemsList = () => {
         return {
             currentCategory: state.currentCategory,
             currentDepartment: state.currentDepartment,
-            items: state.items
+            items: state.items,
         }
     }
 
@@ -17,15 +17,14 @@ const ItemsList = () => {
     const { items, currentCategory, currentDepartment } = useSelector(mapState)
 
     useEffect(() => {
-        dispatch(actions.fetchItems(currentCategory, currentDepartment), console.log('currentCategory :>> ', currentCategory), console.log('currentDepartment :>> ', currentDepartment))
-
-    }, [])
+        dispatch(actions.fetchItems(currentCategory, currentDepartment))
+    }, [currentCategory, currentDepartment, dispatch])
 
     return (
         <div className="items-list">
             {items && items.map(item =>
                 <div className="item" key={item.name}>
-                    <Item name={item.name} value={item.value} />
+                    <Item name={item.name} value={item.value} price={item.price}/>
                 </div>
             )}
         </div>

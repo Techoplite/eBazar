@@ -13,7 +13,8 @@ const Filter = () => {
             currentDepartment: state.currentDepartment,
             departments: state.departments,
             minimumPrice: state.minimumPrice,
-            maximumPrice: state.maximumPrice
+            maximumPrice: state.maximumPrice,
+            minimumAvailablePrice: state.minimumAvailablePrice,
         }
     }
 
@@ -24,7 +25,8 @@ const Filter = () => {
         currentDepartment,
         departments,
         minimumPrice,
-        maximumPrice
+        maximumPrice,
+        minimumAvailablePrice
     } = useSelector(mapState)
 
     const handleChange = event => {
@@ -45,7 +47,7 @@ const Filter = () => {
 
     useEffect(() => {
         dispatch(actions.fetchCategories())
-    }, [])
+    }, [dispatch])
 
 
     return (
@@ -66,7 +68,7 @@ const Filter = () => {
             </form>}
             <form className="filter-price">
                 <label htmlFor="minimum-price">Min. Price: £{minimumPrice}</label>
-                <input type="range" min="1" max="100" value={minimumPrice} className="slider col-xs-12" id="minimum-price" onChange={(event) => handleChange(event)} />
+                <input type="range" min={minimumAvailablePrice} max="1000" value={minimumPrice} className="slider col-xs-12" id="minimum-price" onChange={(event) => handleChange(event)} />
                 <label htmlFor="maximum-price">Max. Price: £{maximumPrice}</label>
                 <input type="range" min="100" max="1000" value={maximumPrice} className="slider col-xs-12" id="maximum-price" onChange={(event) => handleChange(event)} />
             </form>
