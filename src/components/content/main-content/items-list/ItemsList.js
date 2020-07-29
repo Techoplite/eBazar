@@ -20,7 +20,7 @@ const ItemsList = () => {
 
     useEffect(() => {
         dispatch(actions.fetchItems(currentCategory, currentDepartment, minimumPrice, maximumPrice))
-    }, [currentCategory, currentDepartment, dispatch])
+    }, [currentCategory, currentDepartment, dispatch, minimumPrice, maximumPrice])
 
     return (
         <div className="items-list">

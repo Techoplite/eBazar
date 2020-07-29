@@ -8,10 +8,7 @@ import { toggle } from './../../../actions'
 
 const Toggler = (props) => {
     const toggle = toggler => {
-        console.log(toggler);
-
         toggler === 'hidden' ? props.toggle('visible') : props.toggle('hidden')
-
     }
 
     return (
