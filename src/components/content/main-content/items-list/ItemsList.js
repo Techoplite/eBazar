@@ -10,21 +10,23 @@ const ItemsList = () => {
             currentCategory: state.currentCategory,
             currentDepartment: state.currentDepartment,
             items: state.items,
+            minimumPrice: state.minimumPrice,
+            maximumPrice: state.maximumPrice
         }
     }
 
     const dispatch = useDispatch()
-    const { items, currentCategory, currentDepartment } = useSelector(mapState)
+    const { items, currentCategory, currentDepartment, minimumPrice, maximumPrice } = useSelector(mapState)
 
     useEffect(() => {
-        dispatch(actions.fetchItems(currentCategory, currentDepartment))
+        dispatch(actions.fetchItems(currentCategory, currentDepartment, minimumPrice, maximumPrice))
     }, [currentCategory, currentDepartment, dispatch])
 
     return (
         <div className="items-list">
             {items && items.map(item =>
                 <div className="item" key={item.name}>
-                    <Item name={item.name} value={item.value} price={item.price}/>
+                    <Item name={item.name} value={item.value} price={item.price} />
                 </div>
             )}
         </div>

@@ -14,8 +14,6 @@ export const SET_MAXIMUM_PRICE = 'SET_MAXIMUM_PRICE'
 export const FETCH_ITEMS_REQUEST = 'FETCH_ITEMS_REQUEST'
 export const FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS'
 export const FETCH_ITEMS_FAILURE = 'FETCH_ITEMS_FAILURE'
-export const GET_MINIMUM_AVAILABLE_PRICE = 'GET_MINIMUM_AVAILABLE_PRICE'
-export const GET_MAXIMUM_AVAILABLE_PRICE = 'GET_MAXIMUM_AVAILABLE_PRICE'
 
 
 /*
@@ -82,6 +80,11 @@ export const fetchCategories = () => async dispatch => {
         })
 }
 
+export const filterByPrice = (category, department, minimumPrice, maximumPrice) => async dispatch => {
+    dispatch(setMinimumPrice(minimumPrice))
+    dispatch(setMaximumPrice(maximumPrice))
+    dispatch(fetchItems(category, department, minimumPrice, maximumPrice))
+}
 
 export const toggle = toggler => {
     return {
@@ -110,14 +113,6 @@ export const fetchItemsRequest = () => {
     }
 }
 
-
-export const loadItemData = items => async dispatch => {
-    dispatch(fetchItemsSuccess(items))
-    dispatch(getMinimumAvailablePrice(items))
-    dispatch(getMaximumAvailablePrice(items))
-
-}
-
 export const fetchItemsSuccess = items => {
     return {
         type: FETCH_ITEMS_SUCCESS,
@@ -131,12 +126,12 @@ export const fetchItemsFailure = error => {
     }
 }
 
-export const fetchItems = (category, department) => async dispatch => {
-    if (category.value !== "any" && department.value === "any" || department.value === undefined) {
-        return axios.get(`http://localhost:7000/items?category=${category.id}`)
+export const fetchItems = (category, department, minimumPrice, maximumPrice) => async dispatch => {
+    if ((category.value !== "any" && department.value === "any") || department.value === undefined) {
+        return axios.get(`http://localhost:7000/items?category=${category.id}&price_gte=${minimumPrice}&price_lte=${maximumPrice}`)
             .then(response => {
                 const items = response.data
-                dispatch(loadItemData(items),
+                dispatch(fetchItemsSuccess(items),
                 )
             }
             )
@@ -145,10 +140,10 @@ export const fetchItems = (category, department) => async dispatch => {
             })
     }
     if (category.value !== "any" && department.value !== undefined && department.value !== "any") {
-        return axios.get(`http://localhost:7000/items?category=${category.id}&department=${department.id}`)
+        return axios.get(`http://localhost:7000/items?category=${category.id}&department=${department.id}&price_gte=${minimumPrice}&price_lte=${maximumPrice}`)
             .then(response => {
                 const items = response.data
-                dispatch(loadItemData(items),
+                dispatch(fetchItemsSuccess(items),
                 )
             }
             )
@@ -156,36 +151,14 @@ export const fetchItems = (category, department) => async dispatch => {
                 dispatch(fetchItemsFailure(error.message))
             })
     }
-    return axios.get('http://localhost:7000/items')
+    return axios.get(`http://localhost:7000/items?price_gte=${minimumPrice}&price_lte=${maximumPrice}`)
         .then(response => {
             const items = response.data
-            dispatch(loadItemData(items),
+            dispatch(fetchItemsSuccess(items),
             )
         }
         )
         .catch(error => {
             dispatch(fetchItemsFailure(error.message))
         })
-}
-
-export const getMinimumAvailablePrice = items => {
-    let prices = []
-    items.map(item => prices.push(item.price))
-    prices.sort(function (a, b) { return a - b })
-    const value = prices[0]
-    return {
-        type: GET_MINIMUM_AVAILABLE_PRICE,
-        payload: value
-    }
-}
-
-export const getMaximumAvailablePrice = items => {
-    let prices = []
-    items.map(item => prices.push(item.price))
-    prices.sort(function (a, b) { return b - a })
-    const value = prices[0]
-    return {
-        type: GET_MAXIMUM_AVAILABLE_PRICE,
-        payload: value
-    }
 }
