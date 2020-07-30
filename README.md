@@ -29,4 +29,6 @@ Hereafter, it is possible to appreciate the current stage of the project.
 
 ![](full-responsive.gif)
 
-Next step will be to implement Redux actions and reducers to fecth items from the 'dummy' backend (not tracked in this repository).
+## Feature added: filter items by category, department, minimum and maximum price
+
+![](filter.gif)
