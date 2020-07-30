@@ -14,6 +14,8 @@ export const SET_MAXIMUM_PRICE = 'SET_MAXIMUM_PRICE'
 export const FETCH_ITEMS_REQUEST = 'FETCH_ITEMS_REQUEST'
 export const FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS'
 export const FETCH_ITEMS_FAILURE = 'FETCH_ITEMS_FAILURE'
+export const SET_VALUE_SEARCHED = 'SET_VALUE_SEARCHED'
+export const FILTER_BY_NAME = 'FILTER_BY_NAME'
 
 
 /*
@@ -161,4 +163,29 @@ export const fetchItems = (category, department, minimumPrice, maximumPrice) => 
         .catch(error => {
             dispatch(fetchItemsFailure(error.message))
         })
+}
+
+export const setValueSearched = value => {
+    return {
+        type: SET_VALUE_SEARCHED,
+        payload: value
+    }
+}
+
+export const fetchSearchedItems = value => async dispatch => {
+    return axios.get(`http://localhost:7000/items?q=${value}`)
+        .then(response => {
+            const items = response.data
+            dispatch(fetchItemsSuccess(items),
+            )
+        }
+        )
+        .catch(error => {
+            dispatch(fetchItemsFailure(error.message))
+        })
+}
+
+export const filterByName = value => async dispatch => {
+    dispatch(setValueSearched(value))
+    dispatch(fetchSearchedItems(value))
 }
