@@ -173,7 +173,7 @@ export const setValueSearched = value => {
 }
 
 export const fetchSearchedItems = value => async dispatch => {
-    return axios.get(`http://localhost:7000/items?q=${value}`)
+    return axios.get(`http://localhost:7000/items?name_like=${value}`)
         .then(response => {
             const items = response.data
             dispatch(fetchItemsSuccess(items),
