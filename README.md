@@ -32,3 +32,7 @@ Hereafter, it is possible to appreciate the current stage of the project.
 ## Feature added: filter items by category, department, minimum and maximum price
 
 ![](filter.gif)
+
+## Feature added: searchbox allows to filter items by name
+
+![](searchbox.gif)
