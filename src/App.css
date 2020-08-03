@@ -2,21 +2,16 @@ body {
   font-size: 1.1rem;
 }
 
-/* div {
-  border: 0.2px solid red;
-} */
-
 /* Smartphones */
 
 .main-content {
-  /* background-color: red; */
   padding: 15px;
   width: auto;
 }
 
 .item-details {
-  padding-left: 15px;
   font-size: 1rem;
+  margin-top: 15px;
 }
 
 .item-discount {
@@ -303,20 +298,43 @@ label {
   img {
     width: 40%;
   }
+
+  .item-details {
+    padding-left: 15px;
+    margin-top: 0;
+  }
 }
 
 /* Desktop: */
 @media only screen and (min-width: 812px) {
   img {
-    max-width: 25%;
+    min-width: 100%;
+    height: auto;
+  }
+  .item-name {
+    font-size: 1.5rem;
+  }
+
+  .items-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .item {
-    height: auto;
+    max-width: 27%;
+    flex-wrap: wrap;
+    margin-bottom: 2%;
+    margin-right: auto;
   }
 
   .item-details {
-    height: auto;
+    font-size: 1rem;
+    padding-left: 0;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
   .content {
@@ -388,5 +406,9 @@ label {
 
   .main-content {
     width: 80%;
+  }
+
+  option {
+    font-size: 0.9rem;
   }
 }
