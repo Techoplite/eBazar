@@ -17,7 +17,7 @@ body {
 .item-discount {
   color: white;
   background: red;
-  padding: 2px 4px;
+  padding: 5px 10px;
   border-radius: 1px;
   width: fit-content;
   margin: 2px 00;
@@ -308,33 +308,23 @@ label {
 /* Desktop: */
 @media only screen and (min-width: 812px) {
   img {
-    min-width: 100%;
+    max-width: 25%;
     height: auto;
   }
   .item-name {
     font-size: 1.5rem;
   }
 
-  .items-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
   .item {
-    max-width: 27%;
     flex-wrap: wrap;
     margin-bottom: 2%;
-    margin-right: auto;
   }
 
   .item-details {
     font-size: 1rem;
-    padding-left: 0;
-    padding-top: 15px;
+    padding-left: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
   }
 
   .content {
