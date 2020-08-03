@@ -39,6 +39,7 @@ img {
 }
 
 .item {
+  margin-bottom: 5px;
   display: flex;
   background-color: white;
   padding: 15px;

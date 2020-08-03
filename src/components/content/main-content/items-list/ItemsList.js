@@ -26,7 +26,7 @@ const ItemsList = () => {
         <div className="items-list">
             {items && items.map(item =>
                 <div className="item" key={item.name}>
-                    <Item name={item.name} value={item.value} price={item.price} image={item.image}/>
+                    <Item name={item.name} value={item.value} price={item.price} image={item.image} discount={item.discount}/>
                 </div>
             )}
         </div>
