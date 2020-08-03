@@ -9,7 +9,7 @@ const Item = (props) => {
                 {props.discount === 0 ? <div className="item-price">£{props.price}</div> :
                     <Fragment>
                         <div className="item-discount">{props.discount}% Discount</div>
-                        <div className="item-price">Was £{props.price}</div>
+                        <div className="item-was-price">Was £{props.price}</div>
                         
                         <div className="item-price">Now £{((100 - props.discount) / 100 * props.price).toFixed(2)}
                         </div>
