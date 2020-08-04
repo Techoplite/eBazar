@@ -33,9 +33,8 @@ const Item = (props) => {
                             </span> : <span className="material-icons">
                             star_outline
                             </span>}
-
-
                 </div>
+                {props.left < 6 && <div className="items-left">Only {props.left} items left!</div>}
                 {props.discount === 0 ? <div className="item-price">£{props.price}</div> :
                     <Fragment>
                         <div className="item-discount">{props.discount}% Discount</div>
