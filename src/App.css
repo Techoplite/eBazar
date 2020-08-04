@@ -322,10 +322,11 @@ label {
 /* Desktop: */
 @media only screen and (min-width: 812px) {
   img {
-    height: auto;
+    width: 20%;
+    height: 20%;
   }
   .item-name {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .item {
@@ -415,3 +416,4 @@ label {
     font-size: 0.9rem;
   }
 }
+
