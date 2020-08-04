@@ -24,10 +24,15 @@ const ItemsList = () => {
 
     return (
         <div className="items-list">
-            {items && items.map(item =>
-                <div className="item" key={item.name}>
-                    <Item name={item.name} value={item.value} price={item.price} image={item.image} discount={item.discount}/>
+            {items && items.map(item => {
+                const avarageRating = ((item.rating[1] + 2 * item.rating[2] + 3 * item.rating[3] + 4 * item.rating[4] + 5 * item.rating[5]) / (item.rating[1] + item.rating[2] + item.rating[3] + item.rating[4] + item.rating[5])).toFixed(1)
+                
+                const totalFeedbacks = (item.rating[1] + item.rating[2] + item.rating[3] + item.rating[4] + item.rating[5])
+
+                return <div className="item" key={item.name}>
+                    <Item name={item.name} value={item.value} price={item.price} image={item.image} discount={item.discount} rating={avarageRating} totalFeedbacks={totalFeedbacks}/>
                 </div>
+            }
             )}
         </div>
     );

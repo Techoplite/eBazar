@@ -4,6 +4,20 @@ body {
 
 /* Smartphones */
 
+.item-was-price {
+  text-decoration: line-through;
+}
+
+.weighted-avarage-rating {
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.material-icons {
+  padding: 5px 0;
+  color: rgb(97, 63, 126);
+}
+
 .main-content {
   padding: 15px;
   width: auto;
@@ -308,7 +322,6 @@ label {
 /* Desktop: */
 @media only screen and (min-width: 812px) {
   img {
-    max-width: 25%;
     height: auto;
   }
   .item-name {
