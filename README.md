@@ -347,7 +347,7 @@ Herafter is my db.json file
 
 It is build following a mobile-first approach, using **React** and **Redux**. 
 
-Hereafter, it is possible to appreciate the current stage of the project whit the latest features added at the bottom.
+Hereafter, it is possible to appreciate the current stage of the project with the latest features added at the bottom.
 
 ## Responsiveness
 
