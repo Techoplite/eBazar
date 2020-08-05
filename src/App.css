@@ -473,7 +473,7 @@ label {
   }
 
   .useful-links {
-    grid-column: 4 / 11;
+    grid-column: 3 / 11;
     gap: 15px;
   }
 
