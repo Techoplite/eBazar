@@ -36,3 +36,7 @@ Hereafter, it is possible to appreciate the current stage of the project.
 ## Feature added: searchbox allows to filter items by name
 
 ![](searchbox.gif)
+
+## Feature added: display items data and responsive feedback tooltip
+
+![](items-data.gif)
