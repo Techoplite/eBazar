@@ -1,8 +1,82 @@
 body {
   font-size: 1.1rem;
+  font-weight: 500;
 }
 
 /* Smartphones */
+.star-percentage {
+  position: relative;
+  color: rgb(97, 63, 126);
+}
+
+.progress-bar-label {
+  margin-bottom: 4px;
+}
+
+.progress {
+  width: 54%;
+  background-color: aliceblue;
+  height: 2vh;
+  margin: 0 10px;
+}
+
+.progress-bar {
+  height: 2vh;
+  background-color: green;
+}
+
+span.tooltip-content {
+  margin-left: 1%;
+}
+
+.star-rating.tooltip {
+  width: fit-content;
+}
+
+.tooltip-content {
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: rgb(216, 193, 119);
+  border-radius: 2px;
+  display: flex;
+  margin: auto;
+  position: absolute;
+  /* vvvvvvv toggle properties to make visible */
+  opacity: 0;
+  transition: opacity 0.3s;
+  /* ^^^^^^^ toggle properties to make visible */
+}
+
+.tooltip-content:after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 13%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgb(216, 193, 119) transparent;
+}
+
+/* vvvvvvv toggle properties to make visible */
+.tooltip:hover .tooltip-content {
+  visibility: visible;
+  opacity: 1;
+}
+/* ^^^^^^^ toggle properties to make visible */
+
+.tooltip .tooltip-content {
+  /* vvvvvvv toggle properties to make visible */
+  visibility: hidden;
+  /* ^^^^^^^ toggle properties to make visible */
+  border: 5px solid white;
+  width: 200px;
+  background-color: rgb(216, 193, 119);
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+}
 
 .item-was-price {
   text-decoration: line-through;
@@ -87,7 +161,6 @@ span {
 a {
   text-decoration: none;
   text-align: center;
-  text-shadow: 0 0 1px rgb(97, 63, 126);
 }
 
 .navbar {
@@ -226,7 +299,6 @@ select:focus {
 
 label {
   color: rgb(97, 63, 126);
-  text-shadow: 0 0 1px rgb(97, 63, 126);
 }
 
 #footer {
@@ -239,6 +311,22 @@ label {
 
 /* Tablet: */
 @media only screen and (min-width: 600px) {
+  .tooltip .tooltip-content {
+    width: 350px;
+  }
+
+  .progress {
+    width: 73%;
+  }
+
+  .tooltip-content {
+    margin-left: -15% !important;
+  }
+
+  .tooltip-content:after {
+    left: 40%;
+  }
+
   .hidden {
     display: inline;
   }
@@ -330,6 +418,14 @@ label {
 
 /* Desktop: */
 @media only screen and (min-width: 812px) {
+  .tooltip-content:after {
+    left: 4vw;
+  }
+
+  .tooltip .tooltip-content {
+    margin-left: -1% !important;
+  }
+
   img {
     width: 20%;
     height: 20%;
@@ -425,4 +521,3 @@ label {
     font-size: 0.9rem;
   }
 }
-
