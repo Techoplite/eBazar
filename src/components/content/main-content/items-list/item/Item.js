@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom'
 
 const Item = (props) => {
     const star1 = props.item.rating[1]
@@ -18,7 +19,9 @@ const Item = (props) => {
         <Fragment>
             <img src={process.env.PUBLIC_URL + `${props.image}`} alt="" />
             <div className="item-details">
-                <div className="item-name">{props.name}</div>
+                <div className="item-name">
+                    <Link to={`/${props.item.id}`}>{props.name}</Link>
+                </div>
                 <div className="weighted-avarage-rating">{props.rating} out of {props.totalFeedbacks} feedbacks</div>
                 <div className="star-rating tooltip">
                     {props.rating > 1 ? <span className="material-icons">

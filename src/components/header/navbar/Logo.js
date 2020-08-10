@@ -1,10 +1,14 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 
 const Logo = () => {
     return (
-        <a href="/" className="logo">
+        <NavLink
+            to="/"
+            className="logo"
+        >
             eBazar
-        </a>
+        </NavLink>
     );
 }
 

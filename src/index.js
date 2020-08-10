@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import rootReducer from './reducers'
 import thunk from 'redux-thunk'
 import './fonts/XXII-ARABIAN-ONENIGHTSTAND.ttf'
+import { BrowserRouter as Router } from "react-router-dom";
 
 const composedEnhancers = compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
@@ -18,9 +19,11 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <Router>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </Router>
   </Provider>,
   document.getElementById('root')
 );
