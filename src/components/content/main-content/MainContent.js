@@ -3,7 +3,7 @@ import ItemsList from './items-list/ItemsList';
 import BestSellers from './items-list/best-sellers/BestSellers';
 import DealsOfTheDay from './items-list/deals-of-the-day/DealOfTheDay';
 import { Switch, Route } from 'react-router-dom'
-import ItemDeatail from './items-list/item/ItemDetail';
+import ItemDetail from './items-list/item/ItemDetail';
 
 const MainContent = () => {
     return (
@@ -12,7 +12,7 @@ const MainContent = () => {
                 <Route path="/" exact component={ItemsList} />
                 <Route path="/best-sellers" exact component={BestSellers} />
                 <Route path="/deals-of-the-day" exact component={DealsOfTheDay} />
-                <Route path="/:id" exact component={ItemDeatail} />
+                <Route path="/:id" exact component={ItemDetail} />
             </Switch>
         </div>
     );

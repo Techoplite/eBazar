@@ -4,6 +4,17 @@ body {
 }
 
 /* Smartphones */
+#item-detail {
+  border: 1px solid red;
+  width: 100%;
+}
+
+#picture,
+#details {
+  border: 1px solid red;
+  
+}
+
 .star-percentage {
   position: relative;
   color: rgb(97, 63, 126);

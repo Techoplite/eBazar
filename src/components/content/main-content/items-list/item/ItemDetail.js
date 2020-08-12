@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import * as actions from '../../../../../actions'
 
-const ItemDeatail = (props) => {
+const ItemDetail = (props) => {
     const mapState = (state) => {
         return {
             currentItem: state.currentItem,
@@ -20,7 +20,24 @@ const ItemDeatail = (props) => {
         return () => dispatch(actions.setAside(true))
     }, [dispatch, props.match.params])
 
-    return (<div>This is the Item Detail page {currentItem.name}</div>);
+    return (
+        currentItem !== null &&
+        <div id="item-detail">
+            <div id="picture">
+                <img src={process.env.PUBLIC_URL + `${currentItem.image}`} alt="" />
+            </div>
+            <div id="details">
+                <p>{currentItem.name}</p>
+                <p>{currentItem.features}</p>
+                <p>{currentItem.price}</p>
+                <p>rate 1{currentItem.rating[0]}</p>
+                <p>rate 2{currentItem.rating[1]}</p>
+                <p>rate 3{currentItem.rating[3]}</p>
+                <p>rate 4{currentItem.rating[4]}</p>
+                <p>rate 5{currentItem.rating[5]}</p>
+            </div>
+        </div >
+    );
 }
 
-export default ItemDeatail;
+export default ItemDetail;

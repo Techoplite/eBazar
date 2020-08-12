@@ -20,7 +20,7 @@ const initState = {
     maximumPrice: 5000,
     items: [],
     valueSearched: '',
-    currentItem: {},
+    currentItem: null,
     aside: true
 }
 
