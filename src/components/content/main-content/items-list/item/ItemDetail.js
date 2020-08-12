@@ -5,7 +5,7 @@ import * as actions from '../../../../../actions'
 const ItemDeatail = (props) => {
     const mapState = (state) => {
         return {
-            currentItem: state.currentItem
+            currentItem: state.currentItem,
         }
     }
 
@@ -16,6 +16,8 @@ const ItemDeatail = (props) => {
     useEffect(() => {
         let { id } = props.match.params
         dispatch(actions.fetchCurrentItem(id))
+        dispatch(actions.setAside(false))
+        return () => dispatch(actions.setAside(true))
     }, [dispatch, props.match.params])
 
     return (<div>This is the Item Detail page {currentItem.name}</div>);

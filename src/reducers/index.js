@@ -20,7 +20,8 @@ const initState = {
     maximumPrice: 5000,
     items: [],
     valueSearched: '',
-    currentItem: {}
+    currentItem: {},
+    aside: true
 }
 
 const rootReducer = (state = initState, action) => {
@@ -43,6 +44,8 @@ const rootReducer = (state = initState, action) => {
             return { ...state, currentDepartment: action.payload }
         case actions.TOGGLE:
             return { ...state, toggler: action.payload }
+        case actions.ASIDE:
+            return { ...state, aside: action.payload }
         case actions.SET_MINIMUM_PRICE:
             return { ...state, minimumPrice: action.payload }
         case actions.SET_MAXIMUM_PRICE:
@@ -58,7 +61,7 @@ const rootReducer = (state = initState, action) => {
         case actions.FETCH_CURRENT_ITEM_REQUEST:
             return { ...state, loading: true }
         case actions.FETCH_CURRENT_ITEM_SUCCESS:
-            return { ...state, loading: false, currentItem: action.payload }
+            return { ...state, loading: false, currentItem: action.payload, aside: false }
         case actions.FETCH_CURRENT_ITEM_FAILURE:
             return { ...state, loading: false, currentItem: action.payload }
         default:

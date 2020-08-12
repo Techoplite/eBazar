@@ -19,6 +19,8 @@ export const FILTER_BY_NAME = 'FILTER_BY_NAME'
 export const FETCH_CURRENT_ITEM_REQUEST = 'FETCH_CURRENT_ITEM_REQUEST'
 export const FETCH_CURRENT_ITEM_SUCCESS = 'FETCH_CURRENT_ITEM_SUCCESS'
 export const FETCH_CURRENT_ITEM_FAILURE = 'FETCH_CURRENT_ITEM_FAILURE'
+export const ASIDE = 'ASIDE'
+
 
 
 /*
@@ -95,6 +97,13 @@ export const toggle = toggler => {
     return {
         type: TOGGLE,
         payload: toggler
+    }
+}
+
+export const setAside = aside => {
+    return {
+        type: ASIDE,
+        payload: aside
     }
 }
 
