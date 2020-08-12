@@ -19,7 +19,8 @@ const initState = {
     minimumPrice: 0,
     maximumPrice: 5000,
     items: [],
-    valueSearched: ''
+    valueSearched: '',
+    currentItem: {}
 }
 
 const rootReducer = (state = initState, action) => {
@@ -53,7 +54,13 @@ const rootReducer = (state = initState, action) => {
         case actions.FETCH_ITEMS_FAILURE:
             return { ...state, loading: false, items: action.payload }
         case actions.SET_VALUE_SEARCHED:
-            return { ...state, valueSearched: action.payload}
+            return { ...state, valueSearched: action.payload }
+        case actions.FETCH_CURRENT_ITEM_REQUEST:
+            return { ...state, loading: true }
+        case actions.FETCH_CURRENT_ITEM_SUCCESS:
+            return { ...state, loading: false, currentItem: action.payload }
+        case actions.FETCH_CURRENT_ITEM_FAILURE:
+            return { ...state, loading: false, currentItem: action.payload }
         default:
             return state
     }

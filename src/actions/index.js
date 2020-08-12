@@ -16,6 +16,9 @@ export const FETCH_ITEMS_SUCCESS = 'FETCH_ITEMS_SUCCESS'
 export const FETCH_ITEMS_FAILURE = 'FETCH_ITEMS_FAILURE'
 export const SET_VALUE_SEARCHED = 'SET_VALUE_SEARCHED'
 export const FILTER_BY_NAME = 'FILTER_BY_NAME'
+export const FETCH_CURRENT_ITEM_REQUEST = 'FETCH_CURRENT_ITEM_REQUEST'
+export const FETCH_CURRENT_ITEM_SUCCESS = 'FETCH_CURRENT_ITEM_SUCCESS'
+export const FETCH_CURRENT_ITEM_FAILURE = 'FETCH_CURRENT_ITEM_FAILURE'
 
 
 /*
@@ -188,4 +191,36 @@ export const fetchSearchedItems = value => async dispatch => {
 export const filterByName = value => async dispatch => {
     dispatch(setValueSearched(value))
     dispatch(fetchSearchedItems(value))
+}
+
+export const fetchCurrentItemRequest = () => {
+    return {
+        type: FETCH_CATEGORIES_REQUEST
+    }
+}
+
+export const fetchCurrentItemSuccess = currentItem => {
+    return {
+        type: FETCH_CURRENT_ITEM_SUCCESS,
+        payload: currentItem
+    }
+}
+export const fetchCurrentItemFailure = error => {
+    return {
+        type: FETCH_CURRENT_ITEM_FAILURE,
+        payload: error
+    }
+}
+
+export const fetchCurrentItem = id => async dispatch => {
+    return axios.get(`http://localhost:7000/items/${id}`)
+        .then(response => {
+            const currentItem = response.data
+            dispatch(fetchCurrentItemSuccess(currentItem),
+            )
+        }
+        )
+        .catch(error => {
+            dispatch(fetchCurrentItemFailure(error.message))
+        })
 }
