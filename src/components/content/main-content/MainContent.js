@@ -9,18 +9,10 @@ const MainContent = () => {
     return (
         <div className="main-content">
             <Switch>
-                <Route path="/" exact>
-                    <ItemsList />
-                </Route>
-                <Route path="/best-sellers" exact>
-                    <BestSellers />
-                </Route>
-                <Route path="/deals-of-the-day" exact>
-                    <DealsOfTheDay />
-                </Route>
-                <Route path="/:id" exact>
-                    <ItemDeatail />
-                </Route>
+                <Route path="/" exact component={ItemsList} />
+                <Route path="/best-sellers" exact component={BestSellers} />
+                <Route path="/deals-of-the-day" exact component={DealsOfTheDay} />
+                <Route path="/:id" exact component={ItemDeatail} />
             </Switch>
         </div>
     );
