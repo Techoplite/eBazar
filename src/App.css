@@ -23,6 +23,7 @@ body {
 .feedback-star-percentage {
   color: rgb(97, 63, 126);
   margin-left: 3%;
+  width: 20px;
 }
 
 .star-percentage {
