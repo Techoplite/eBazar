@@ -47,50 +47,50 @@ const ItemDetail = (props) => {
 
     return (
         currentItem !== null &&
-        <div className="item">
+        <div className="single-item-details">
             <div className="picture">
-                <img src={process.env.PUBLIC_URL + `${currentItem.image}`} alt="" />
+                <img id="detail-img" src={process.env.PUBLIC_URL + `${currentItem.image}`} alt="" />
+                <div className="order"></div>
+
             </div>
-            <div className="details">
-                <br/>
+            <div className="item-data">
+                <br />
                 <div className="item-name">
                     {currentItem.name}
                 </div>
 
                 <div className="weighted-avarage-rating">{avarageRating} out of {totalFeedbacks} feedbacks</div>
-            </div>
-            <div className="star-rating tooltip">
-                {avarageRating > 1 ? <span className="material-icons">
-                    star
+                <div className="star-rating tooltip">
+                    {avarageRating > 1 ? <span className="material-icons">
+                        star
                             </span> : <span className="material-icons">
-                        star_outline
+                            star_outline
                             </span>}
-                {avarageRating > 2 ? <span className="material-icons">
-                    star
+                    {avarageRating > 2 ? <span className="material-icons">
+                        star
                             </span> : <span className="material-icons">
-                        star_outline
+                            star_outline
                             </span>}
-                {avarageRating > 3 ? <span className="material-icons">
-                    star
+                    {avarageRating > 3 ? <span className="material-icons">
+                        star
                             </span> : <span className="material-icons">
-                        star_outline
+                            star_outline
                             </span>}
-                {avarageRating > 4 ? <span className="material-icons">
-                    star
+                    {avarageRating > 4 ? <span className="material-icons">
+                        star
                             </span> : <span className="material-icons">
-                        star_outline
+                            star_outline
                             </span>}
-                {avarageRating > 5 ? <span className="material-icons">
-                    star
+                    {avarageRating > 5 ? <span className="material-icons">
+                        star
                             </span> : <span className="material-icons">
-                        star_outline
+                            star_outline
                             </span>}
-            </div >
-            <div className="feedback">
-                <br/>
+                </div >
+                <br />
                 Feedback
-                 <br/>
-                 <br/>
+                 <br />
+                <br />
                 <div className="feedback-row">
                     <label htmlFor="5-star" className="progress-bar-label  feedback-progress-bar">5 star
                         </label>
@@ -152,12 +152,12 @@ const ItemDetail = (props) => {
                         </div>
                 </div>
                 <div>
-                    <br/>
+                    <br />
                     Features
                     <ul>
                         {currentItem.features.map(feature => <li>{feature}</li>)}
                     </ul>
-                    <br/>
+                    <br />
                 </div>
             </div>
         </div>
