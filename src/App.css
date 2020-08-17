@@ -10,6 +10,7 @@ body {
 
 .feedback-row {
   display: flex;
+  justify-content: center;
 }
 
 .feedback-progress {
