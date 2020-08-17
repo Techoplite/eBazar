@@ -44,7 +44,7 @@ button {
   border: 2px solid lightgrey;
   width: 57%;
   margin-left: 5%;
-  margin: 7px 0;
+  margin: 10px 0;
   background-color: aliceblue;
 }
 
@@ -493,6 +493,7 @@ label {
   .item-data {
     padding: 20px;
     width: 50%;
+    margin-top: 40px;
   }
 
   .tooltip-content:after {
