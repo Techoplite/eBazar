@@ -4,6 +4,12 @@ body {
 }
 
 /* Smartphones */
+#detail-img {
+  height: auto;
+  width: 50%;
+  margin: auto;
+}
+
 .detail-item-name {
   font-size: 1.7rem;
 }
@@ -513,6 +519,8 @@ label {
 
   #detail-img {
     height: auto;
+    width: 50%;
+    margin: auto;
   }
 
   .picture {
