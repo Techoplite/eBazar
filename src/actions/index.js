@@ -23,6 +23,9 @@ export const ASIDE = 'ASIDE'
 export const FETCH_BEST_SELLERS_REQUEST = 'FETCH_BEST_SELLERS_REQUEST'
 export const FETCH_BEST_SELLERS_SUCCESS = 'FETCH_BEST_SELLERS_SUCCESS'
 export const FETCH_BEST_SELLERS_FAILURE = 'FETCH_BEST_SELLERS_FAILURE'
+export const FETCH_DEALS_REQUEST = 'FETCH_DEALS_REQUEST'
+export const FETCH_DEALS_SUCCESS = 'FETCH_DEALS_SUCCESS'
+export const FETCH_DEALS_FAILURE = 'FETCH_DEALS_FAILURE'
 
 
 
@@ -266,5 +269,37 @@ export const fetchBestSellers = () => async dispatch => {
         )
         .catch(error => {
             dispatch(fetchBestSellersFailure(error.message))
+        })
+}
+
+export const fetchDealsRequest = () => {
+    return {
+        type: FETCH_DEALS_REQUEST
+    }
+}
+
+export const fetchDealsSuccess = items => {
+    return {
+        type: FETCH_DEALS_SUCCESS,
+        payload: items
+    }
+}
+export const fetchDealsFailure = error => {
+    return {
+        type: FETCH_DEALS_FAILURE,
+        payload: error
+    }
+}
+
+export const fetchDeals = () => async dispatch => {
+    return axios.get(`http://localhost:7000/items?discount_gte=1`)
+        .then(response => {
+            const items = response.data
+            dispatch(fetchDealsSuccess(items),
+            )
+        }
+        )
+        .catch(error => {
+            dispatch(fetchDealsFailure(error.message))
         })
 }

@@ -70,6 +70,12 @@ const rootReducer = (state = initState, action) => {
             return { ...state, loading: false, items: action.payload, aside: false }
         case actions.FETCH_BEST_SELLERS_FAILURE:
             return { ...state, loading: false, items: action.payload }
+        case actions.FETCH_DEALS_REQUEST:
+            return { ...state, loading: true }
+        case actions.FETCH_DEALS_SUCCESS:
+            return { ...state, loading: false, items: action.payload, aside: false }
+        case actions.FETCH_DEALS_FAILURE:
+            return { ...state, loading: false, items: action.payload }
         default:
             return state
     }
