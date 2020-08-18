@@ -517,9 +517,9 @@ label {
     width: 50%;
   }
 
-  .item-name {
+  .detail-item-name {
     font-size: 1.3rem;
-    margin-top: -50px;
+    margin-top: -40px;
   }
 
   .item {

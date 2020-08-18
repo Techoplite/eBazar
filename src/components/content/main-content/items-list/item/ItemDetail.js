@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import * as actions from '../../../../../actions'
 
@@ -58,10 +58,23 @@ const ItemDetail = (props) => {
             </div>
             <div className="item-data">
                 <br />
-                <div className="item-name">
+                <div className="detail-item-name">
                     {currentItem.name}
                 </div>
+                <br />
+                <div>
+                    {currentItem.left < 6 && <div className="items-left">Only {currentItem.left} items left!</div>}
+                    {currentItem.discount === 0 ? <div className="item-price">£{currentItem.price}</div> :
+                        <Fragment>
+                            <div className="item-discount">{currentItem.discount}% Discount</div>
+                            <div className="item-was-price">Was £{currentItem.price}</div>
 
+                            <div className="item-price">Now £{((100 - currentItem.discount) / 100 * currentItem.price).toFixed(2)}
+                            </div>
+                        </Fragment>}
+
+                </div>
+                <br />
                 <div className="weighted-avarage-rating">{avarageRating} out of {totalFeedbacks} feedbacks</div>
                 <div className="star-rating tooltip">
                     {avarageRating > 1 ? <span className="material-icons">
