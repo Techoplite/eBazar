@@ -20,6 +20,9 @@ export const FETCH_CURRENT_ITEM_REQUEST = 'FETCH_CURRENT_ITEM_REQUEST'
 export const FETCH_CURRENT_ITEM_SUCCESS = 'FETCH_CURRENT_ITEM_SUCCESS'
 export const FETCH_CURRENT_ITEM_FAILURE = 'FETCH_CURRENT_ITEM_FAILURE'
 export const ASIDE = 'ASIDE'
+export const FETCH_BEST_SELLERS_REQUEST = 'FETCH_BEST_SELLERS_REQUEST'
+export const FETCH_BEST_SELLERS_SUCCESS = 'FETCH_BEST_SELLERS_SUCCESS'
+export const FETCH_BEST_SELLERS_FAILURE = 'FETCH_BEST_SELLERS_FAILURE'
 
 
 
@@ -231,5 +234,37 @@ export const fetchCurrentItem = id => async dispatch => {
         )
         .catch(error => {
             dispatch(fetchCurrentItemFailure(error.message))
+        })
+}
+
+export const fetchBestSellersRequest = () => {
+    return {
+        type: FETCH_BEST_SELLERS_REQUEST
+    }
+}
+
+export const fetchBestSellersSuccess = items => {
+    return {
+        type: FETCH_BEST_SELLERS_SUCCESS,
+        payload: items
+    }
+}
+export const fetchBestSellersFailure = error => {
+    return {
+        type: FETCH_BEST_SELLERS_FAILURE,
+        payload: error
+    }
+}
+
+export const fetchBestSellers = () => async dispatch => {
+    return axios.get(`http://localhost:7000/items?sold_gte=10000`)
+        .then(response => {
+            const items = response.data
+            dispatch(fetchBestSellersSuccess(items),
+            )
+        }
+        )
+        .catch(error => {
+            dispatch(fetchBestSellersFailure(error.message))
         })
 }
