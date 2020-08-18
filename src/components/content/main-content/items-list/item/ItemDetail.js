@@ -62,7 +62,7 @@ const ItemDetail = (props) => {
                     {currentItem.name}
                 </div>
                 <br />
-                <div>
+                <div className="discount-and-stock">
                     {currentItem.left < 6 && <div className="items-left">Only {currentItem.left} items left!</div>}
                     {currentItem.discount === 0 ? <div className="item-price">£{currentItem.price}</div> :
                         <Fragment>
