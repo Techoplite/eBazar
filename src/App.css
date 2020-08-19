@@ -157,7 +157,7 @@ span.tooltip-content {
 
 .main-content {
   padding: 15px;
-  width: auto;
+  width: 100%;
 }
 
 .item-details {

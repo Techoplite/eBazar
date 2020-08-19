@@ -25,7 +25,7 @@ const initState = {
     cart: {
         "id": 1,
         "user": "Mirko",
-        "items": [2, 33, 12],
+        "items": [],
         "isFinished": false,
         "hasBeenPayed": false
     }
