@@ -5,8 +5,10 @@ body {
 
 /* Smartphones */
 #detail-img {
+  max-height: 400px;
+  max-width: 100%;
+  width: auto;
   height: auto;
-  width: 50%;
   margin: auto;
 }
 
@@ -45,14 +47,14 @@ button {
 
 .feedback-row {
   display: flex;
-  justify-content: center;
+  margin-left: 1rem;
 }
 
 .feedback-progress {
   border: 2px solid lightgrey;
   width: 57%;
   margin-left: 5%;
-  margin: 10px 0;
+  margin: auto 0;
   background-color: aliceblue;
 }
 
@@ -89,6 +91,7 @@ span.tooltip-content {
 
 .star-rating.tooltip {
   width: fit-content;
+  margin-left: 1rem;
 }
 
 .tooltip-content {
@@ -143,6 +146,7 @@ span.tooltip-content {
 .weighted-avarage-rating {
   font-size: 1rem;
   margin-top: 5px;
+  margin-left: 1rem;
 }
 
 .material-icons {
@@ -376,10 +380,6 @@ label {
     display: block;
   }
 
-  #detail-img {
-    width: 100%;
-  }
-
   .picture {
     width: 50%;
     margin: auto;
@@ -493,11 +493,6 @@ label {
 
 /* Desktop: */
 @media only screen and (min-width: 812px) {
-  .order {
-    height: 50%;
-    justify-content: space-evenly;
-  }
-
   .item-data {
     padding: 20px;
     width: 50%;
@@ -515,12 +510,6 @@ label {
   img {
     width: 20%;
     height: 20%;
-  }
-
-  #detail-img {
-    height: auto;
-    width: 50%;
-    margin: auto;
   }
 
   .picture {

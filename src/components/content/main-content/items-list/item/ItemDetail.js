@@ -72,9 +72,7 @@ const ItemDetail = (props) => {
                             <div className="item-price">Now £{((100 - currentItem.discount) / 100 * currentItem.price).toFixed(2)}
                             </div>
                         </Fragment>}
-
                 </div>
-                <br />
                 <div className="weighted-avarage-rating">{avarageRating} out of {totalFeedbacks} feedbacks</div>
                 <div className="star-rating tooltip">
                     {avarageRating > 1 ? <span className="material-icons">
@@ -103,10 +101,6 @@ const ItemDetail = (props) => {
                             star_outline
                             </span>}
                 </div >
-                <br />
-                Feedback
-                 <br />
-                <br />
                 <div className="feedback-row">
                     <label htmlFor="5-star" className="progress-bar-label  feedback-progress-bar">5 star
                         </label>
