@@ -1,12 +1,22 @@
 import React from 'react';
+import { useSelector } from 'react-redux'
 
-const Cart = (props) => {
+
+const Cart = () => {
+    const mapState = (state) => {
+        return {
+            cart: state.cart,
+        }
+    }
+
+    const { cart } = useSelector(mapState)
+
     return (
         <a href="/cart/" className="cart">
             <i className="fas fa-shopping-cart" id="cart-icon">
-                <span >4</span>
+                <span >{cart.items.length}</span>
             </i>
-            
+
         </a>
     );
 }

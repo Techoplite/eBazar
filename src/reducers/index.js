@@ -21,7 +21,14 @@ const initState = {
     items: [],
     valueSearched: '',
     currentItem: null,
-    aside: true
+    aside: true,
+    cart: {
+        "id": 1,
+        "user": "Mirko",
+        "items": [2, 33, 12],
+        "isFinished": false,
+        "hasBeenPayed": false
+    }
 }
 
 const rootReducer = (state = initState, action) => {
@@ -76,6 +83,8 @@ const rootReducer = (state = initState, action) => {
             return { ...state, loading: false, items: action.payload, aside: false }
         case actions.FETCH_DEALS_FAILURE:
             return { ...state, loading: false, items: action.payload }
+        case actions.ADD_ITEM_TO_CART:
+            return { ...state, cart: { ...state.cart, items: [...state.cart.items, action.payload] } }
         default:
             return state
     }
