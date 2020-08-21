@@ -12,8 +12,9 @@ const CartSummary = () => {
 
     return (
         <div className="cart-summary">
+            <p className="user-cart-name">{cart.user}'s cart</p>
             <ul>
-                {cart.items.map(item => <li key={item.id}>{item.name} X {item.quantity}</li>)}
+                {cart.items.map(item => <li key={item.id}>{item.name} X {item.quantity}, Subtotal £{item.price * item.quantity}</li>)}
 
             </ul>
         </div>

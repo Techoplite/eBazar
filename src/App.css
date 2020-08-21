@@ -4,6 +4,15 @@ body {
 }
 
 /* Smartphones */
+.user-cart-name {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 .cart-summary {
   border: 1px solid red;
   height: 200px;

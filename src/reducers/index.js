@@ -25,29 +25,7 @@ const initState = {
     cart: {
         "id": 1,
         "user": "Mirko",
-        "items": [
-            {
-                "id": 27,
-                "name": "Paint Splatt Plated Black Baseball",
-                "value": "splatt-plated",
-                "category": 3,
-                "department": 6,
-                "price": 35.0,
-                "discount": 0,
-                "image": "shopping (9).webp",
-                "rating": {
-                    "1": 57,
-                    "2": 78,
-                    "3": 8,
-                    "4": 668,
-                    "5": 7
-                },
-                "sold": 7855,
-                "left": 68,
-                "features": [],
-                "quantity": 2
-            }
-        ],
+        "items": [],
         "isFinished": false,
         "hasBeenPayed": false
     }
@@ -110,21 +88,22 @@ const rootReducer = (state = initState, action) => {
             let itemToAdd = action.payload
             cart.items && cart.items.map(cartItem => {
                 if (cartItem.id === itemToAdd.id) {
-                    console.log('same cartItem.id, item.id :>> ', cartItem.id, itemToAdd.id);
                     const itemToUpload = cart.items.find(cartItem => cartItem.id === itemToAdd.id)
-                    console.log('itemToUpload :>> ', itemToUpload);
                     itemToUpload.quantity++
-                    console.log('itemToUpload.quantity :>> ', itemToUpload.quantity);
                     return cart
                 }
-                else if (cartItem.id !== itemToAdd.id && !itemToAdd.quantity ) {
-                    console.log('differ cartItem.id, item.id :>> ', cartItem.id, itemToAdd.id);
+                else if (cartItem.id !== itemToAdd.id && !itemToAdd.quantity) {
                     itemToAdd.quantity = 1
                     cart.items = [...cart.items, itemToAdd]
                     return cart
                 }
-                return { ...state, cart: cart }
             })
+            !cart.items.length
+                && (itemToAdd.quantity = 1)
+                && (cart.items = [...cart.items, itemToAdd])
+                && console.log("cart empty")
+            return { ...state, cart: cart }
+
         default:
             return state
     }
