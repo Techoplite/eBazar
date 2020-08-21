@@ -1,7 +1,23 @@
 import React from 'react';
+import { useSelector } from 'react-redux'
 
 const CartSummary = () => {
-    return ( <div className="cart-summary">Cart Summary</div> );
+    const mapState = (state) => {
+        return {
+            cart: state.cart,
+        }
+    }
+
+    const { cart } = useSelector(mapState)
+
+    return (
+        <div className="cart-summary">
+            <ul>
+                {cart.items.map(item => <li key={item.id}>{item.name} X {item.quantity}</li>)}
+
+            </ul>
+        </div>
+    );
 }
- 
+
 export default CartSummary;

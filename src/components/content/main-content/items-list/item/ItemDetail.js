@@ -51,7 +51,7 @@ const ItemDetail = (props) => {
             <div className="picture">
                 <img id="detail-img" src={process.env.PUBLIC_URL + `${currentItem.image}`} alt="" />
                 <div className="order">
-                    <button className="add-to-cart" >Add to cart</button>
+                    <button className="add-to-cart" onClick={() => dispatch(actions.increaseQuantity(currentItem))}>Add to cart</button>
                     <button className="buy-now">Buy now</button>
                 </div>
 
