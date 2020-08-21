@@ -26,7 +26,6 @@ export const FETCH_BEST_SELLERS_FAILURE = 'FETCH_BEST_SELLERS_FAILURE'
 export const FETCH_DEALS_REQUEST = 'FETCH_DEALS_REQUEST'
 export const FETCH_DEALS_SUCCESS = 'FETCH_DEALS_SUCCESS'
 export const FETCH_DEALS_FAILURE = 'FETCH_DEALS_FAILURE'
-export const ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART'
 
 
 
@@ -305,9 +304,3 @@ export const fetchDeals = () => async dispatch => {
         })
 }
 
-export const addItemToCart = (id) => {
-    return {
-        type: ADD_ITEM_TO_CART,
-        payload: id
-    }
-}

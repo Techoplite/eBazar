@@ -83,8 +83,6 @@ const rootReducer = (state = initState, action) => {
             return { ...state, loading: false, items: action.payload, aside: false }
         case actions.FETCH_DEALS_FAILURE:
             return { ...state, loading: false, items: action.payload }
-        case actions.ADD_ITEM_TO_CART:
-            return { ...state, cart: { ...state.cart, items: [...state.cart.items, action.payload] } }
         default:
             return state
     }
