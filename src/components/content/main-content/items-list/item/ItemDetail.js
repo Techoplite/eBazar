@@ -55,6 +55,10 @@ const ItemDetail = (props) => {
         return quantity
     }
 
+    const getWidth = () => {
+        return (getQuantity(currentItem) < 1 || isNaN(getQuantity(currentItem))) ? "full-width" : ""
+    }
+
     return (
         currentItem !== null &&
         <div className="single-item-details">
@@ -63,8 +67,8 @@ const ItemDetail = (props) => {
                 <div className="order">
                     {getQuantity(currentItem) > 0 &&
                         <Fragment>
-                            <button className="decrease" onClick={() => dispatch(actions.decreaseQuantity(currentItem))}>-</button><div className="quantity">{getQuantity(currentItem)}</div></Fragment>}
-                    <button className="add-to-cart" onClick={() => dispatch(actions.increaseQuantity(currentItem))}>Add to cart</button>
+                            <button className="decrease" onClick={() => getQuantity(currentItem) === 1 ? dispatch(actions.removeItem(currentItem)) : dispatch(actions.decreaseQuantity(currentItem))}>-</button><div className="quantity">{getQuantity(currentItem)}</div></Fragment>}
+                    <button className={`add-to-cart ${getWidth()}`} onClick={() => dispatch(actions.increaseQuantity(currentItem))}>Add to cart</button>
                     <button className="buy-now">Buy now</button>
                     <button className="remove-item" onClick={() => dispatch(actions.removeItem(currentItem))}>Remove item</button>
                 </div>

@@ -4,6 +4,10 @@ body {
 }
 
 /* Smartphones */
+.full-width {
+  width: 100% !important;
+}
+
 .quantity {
   align-items: center;
   display: flex;
