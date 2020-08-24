@@ -48,8 +48,10 @@ const ItemDetail = (props) => {
         currentItem.rating[5] * 100 / totalFeedbacks
 
     const getQuantity = currentItem => {
-        const quantity = cart.items.map(item =>
-            item.id === currentItem.id && item.quantity)
+        const itemToCount = cart.items.find(item =>
+            item.id === currentItem.id)
+        const quantity = itemToCount && itemToCount.quantity
+        console.log('quantity :>> ', quantity);
         return quantity
     }
 
