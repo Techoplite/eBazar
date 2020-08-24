@@ -43,3 +43,7 @@ Hereafter, it is possible to appreciate the current stage of the project with th
 ## Feature added: display item details
 
 ![](item-details.gif)
+
+## Feature added: add item to cart, decrease quantity, and remove item from cart
+
+![](order-functionalities.gif)
