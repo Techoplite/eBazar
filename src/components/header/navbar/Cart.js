@@ -11,10 +11,20 @@ const Cart = () => {
 
     const { cart } = useSelector(mapState)
 
+    const getItemsQuantity = () => {
+        let cartItemsQuantity = 0
+        cart.items.map(item => {
+            const quantity = item.quantity
+            cartItemsQuantity = cartItemsQuantity + quantity
+        }
+        )
+        return cartItemsQuantity
+    }
+
     return (
         <a href="/cart/" className="cart">
             <i className="fas fa-shopping-cart" id="cart-icon">
-                <span >{cart.items.length}</span>
+                <span >{getItemsQuantity()}</span>
             </i>
 
         </a>
