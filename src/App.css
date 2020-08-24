@@ -5,7 +5,7 @@ body {
 
 /* Smartphones */
 li {
-  font-size: 1rem;
+  font-size: 0.8rem;
   margin: 10px 0;
 }
 
@@ -26,7 +26,7 @@ li.subtotal {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom: 2px solid rgb(230, 230, 230);
+  border-bottom: 2px dotted rgb(230, 230, 230);
 }
 
 .empty-cart {
@@ -50,17 +50,19 @@ li.subtotal {
   margin: 0;
   padding-bottom: 10px;
   font-size: 1.8rem;
-  border-bottom: 2px solid rgb(230, 230, 230);
+  border-bottom: 2px dotted rgb(230, 230, 230);
 }
 
 ul {
   list-style-type: none;
   padding: 0;
+  margin-block-start: auto;
 }
 
 .cart-summary {
+  background: white;
   height: fit-content;
-  border: 2px solid rgb(230, 230, 230);
+  border: 2px dotted rgb(230, 230, 230);
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
@@ -153,7 +155,6 @@ span.tooltip-content {
 
 .star-rating.tooltip {
   width: fit-content;
-  margin-left: 1rem;
 }
 
 .tooltip-content {
@@ -208,7 +209,6 @@ span.tooltip-content {
 .weighted-avarage-rating {
   font-size: 1rem;
   margin-top: 5px;
-  margin-left: 1rem;
 }
 
 .material-icons {
@@ -436,12 +436,17 @@ label {
 
 /* Tablet: */
 @media only screen and (min-width: 600px) {
+  .cart-summary {
+    margin: auto;
+    width: 100%;
+  }
+
   .cart-item {
-    padding: 0 2rem;
+    padding: 0 5%;
   }
 
   .total {
-    padding: 0 2rem;
+    padding: 0 5%;
   }
 
   button {
@@ -565,6 +570,10 @@ label {
 
 /* Desktop: */
 @media only screen and (min-width: 812px) {
+  .items-list {
+    width: fit-content;
+  }
+
   .filter-price {
     width: 100%;
     padding-top: 0;
@@ -572,11 +581,18 @@ label {
 
   .cart-summary {
     margin-left: 1rem;
-    width: 50%;
+    width: auto;
+    margin: 40px 0 0 1rem;
+  }
+
+  .with-aside {
+    margin-top: 0px;
   }
 
   .main-content {
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
   }
 
   .item-data {
@@ -621,6 +637,7 @@ label {
 
   .single-item-details {
     display: flex;
+    width: fit-content;
   }
 
   .content {
