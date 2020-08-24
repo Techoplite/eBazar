@@ -13,7 +13,7 @@ const Cart = () => {
 
     const getItemsQuantity = () => {
         let cartItemsQuantity = 0
-        cart.items.map(item => {
+        cart.items && cart.items.map(item => {
             const quantity = item.quantity
             cartItemsQuantity = cartItemsQuantity + quantity
         }

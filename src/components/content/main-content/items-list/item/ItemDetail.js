@@ -63,7 +63,7 @@ const ItemDetail = (props) => {
                         <button className="decrease" onClick={() => dispatch(actions.decreaseQuantity(currentItem))}>-</button><div className="quantity">{getQuantity(currentItem)}</div></Fragment>}
                     <button className="add-to-cart" onClick={() => dispatch(actions.increaseQuantity(currentItem))}>Add to cart</button>
                     <button className="buy-now">Buy now</button>
-                    <button className="remove-item">Remove item</button>
+                    <button className="remove-item" onClick={() => dispatch(actions.removeItem(currentItem))}>Remove item</button>
                 </div>
 
             </div>

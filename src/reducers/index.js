@@ -87,21 +87,25 @@ const rootReducer = (state = initState, action) => {
             {
                 let cart = state.cart
                 let itemToAdd = action.payload
+                console.log('itemToAdd :>> ', itemToAdd);
                 cart.items && cart.items.map(cartItem => {
+                    console.log("cart has got items");
                     if (cartItem.id === itemToAdd.id) {
                         const itemToUpload = cart.items.find(cartItem => cartItem.id === itemToAdd.id)
                         itemToUpload.quantity++
                         return cart
                     }
-                    else if (cartItem.id !== itemToAdd.id && !itemToAdd.quantity) {
+                    else if (cartItem.id !== itemToAdd.id && !itemToAdd.quantity || isNaN(itemToAdd.quantity)) {
                         itemToAdd.quantity = 1
                         cart.items = [...cart.items, itemToAdd]
+                        console.log("all good");
                         return cart
                     }
                 })
                 !cart.items.length
                     && (itemToAdd.quantity = 1)
                     && (cart.items = [...cart.items, itemToAdd])
+                console.log("this is default");
                 return { ...state, cart: cart }
             }
         case actions.DECREASE_QUANTITY:
@@ -123,6 +127,14 @@ const rootReducer = (state = initState, action) => {
                 !cart.items.length
                     && (itemToDecrese.quantity = 1)
                     && (cart.items = [...cart.items, itemToDecrese])
+                return { ...state, cart: cart }
+            }
+        case actions.REMOVE_ITEM:
+            {
+                let cart = state.cart
+                let itemToRemove = action.payload
+                const cartItems = cart.items.filter(item => item.id !== itemToRemove.id)
+                cart.items = cartItems
                 return { ...state, cart: cart }
             }
         default:

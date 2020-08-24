@@ -28,6 +28,7 @@ export const FETCH_DEALS_SUCCESS = 'FETCH_DEALS_SUCCESS'
 export const FETCH_DEALS_FAILURE = 'FETCH_DEALS_FAILURE'
 export const INCREASE_QUANTITY = 'INCREASE_QUANTITY'
 export const DECREASE_QUANTITY = 'DECREASE_QUANTITY'
+export const REMOVE_ITEM = 'REMOVE_ITEM'
 
 
 
@@ -318,6 +319,13 @@ export const increaseQuantity = currentItem => {
 export const decreaseQuantity = currentItem => {
     return {
         type: DECREASE_QUANTITY,
+        payload: currentItem
+    }
+}
+
+export const removeItem = currentItem => {
+    return {
+        type: REMOVE_ITEM,
         payload: currentItem
     }
 }
