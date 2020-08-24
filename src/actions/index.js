@@ -228,10 +228,13 @@ export const fetchCurrentItemFailure = error => {
     }
 }
 
-export const fetchCurrentItem = id => async dispatch => {
+export const fetchCurrentItem = (id, cart) => async dispatch => {
     return axios.get(`http://localhost:7000/items/${id}`)
         .then(response => {
             const currentItem = response.data
+            const quantity = cart.items.find(item => { return item.id === currentItem.id && item.quantity })
+            currentItem.quantity = quantity
+            console.log('currentItem.quantity :>> ', currentItem.quantity);
             dispatch(fetchCurrentItemSuccess(currentItem),
             )
         }

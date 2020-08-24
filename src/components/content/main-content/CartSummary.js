@@ -44,7 +44,7 @@ const CartSummary = () => {
                 </div>)
                 }
 
-            </ul >
+            </ul>
             <p className="total">Total: £{getTotal(cart.items)}</p>
         </div >
     );

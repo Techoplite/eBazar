@@ -88,7 +88,9 @@ const rootReducer = (state = initState, action) => {
             let itemToAdd = action.payload
             cart.items && cart.items.map(cartItem => {
                 if (cartItem.id === itemToAdd.id) {
+                    console.log('cartItem.id, itemToAdd.id :>> ', cartItem.id, itemToAdd.id);
                     const itemToUpload = cart.items.find(cartItem => cartItem.id === itemToAdd.id)
+                    console.log('itemToUpload :>> ', itemToUpload);
                     itemToUpload.quantity++
                     return cart
                 }
@@ -101,7 +103,6 @@ const rootReducer = (state = initState, action) => {
             !cart.items.length
                 && (itemToAdd.quantity = 1)
                 && (cart.items = [...cart.items, itemToAdd])
-                && console.log("cart empty")
             return { ...state, cart: cart }
 
         default:

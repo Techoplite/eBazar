@@ -6,16 +6,22 @@ const ItemDetail = (props) => {
     const mapState = (state) => {
         return {
             currentItem: state.currentItem,
+            cart: state.cart
         }
     }
 
     const dispatch = useDispatch()
-    const { currentItem } = useSelector(mapState)
+    const { currentItem, cart } = useSelector(mapState)
 
+    const getQuantity = currentItem => {
+        const quantity = cart.items.map(item =>
+            item.id === currentItem.id && item.quantity)
+        return quantity
+    }
 
     useEffect(() => {
         let { id } = props.match.params
-        dispatch(actions.fetchCurrentItem(id))
+        dispatch(actions.fetchCurrentItem(id, cart))
         dispatch(actions.setAside(false))
         return () => dispatch(actions.setAside(true))
     }, [dispatch, props.match.params])
@@ -51,8 +57,13 @@ const ItemDetail = (props) => {
             <div className="picture">
                 <img id="detail-img" src={process.env.PUBLIC_URL + `${currentItem.image}`} alt="" />
                 <div className="order">
+
+                    {getQuantity(currentItem) !== undefined &&
+                        <Fragment>
+                            <button className="decrease">-</button><div className="quantity">{getQuantity(currentItem)}</div></Fragment>}
                     <button className="add-to-cart" onClick={() => dispatch(actions.increaseQuantity(currentItem))}>Add to cart</button>
                     <button className="buy-now">Buy now</button>
+                    <button className="remove-item">Remove item</button>
                 </div>
 
             </div>
