@@ -60,7 +60,7 @@ const ItemDetail = (props) => {
 
                     {getQuantity(currentItem) !== undefined &&
                         <Fragment>
-                            <button className="decrease">-</button><div className="quantity">{getQuantity(currentItem)}</div></Fragment>}
+                        <button className="decrease" onClick={() => dispatch(actions.decreaseQuantity(currentItem))}>-</button><div className="quantity">{getQuantity(currentItem)}</div></Fragment>}
                     <button className="add-to-cart" onClick={() => dispatch(actions.increaseQuantity(currentItem))}>Add to cart</button>
                     <button className="buy-now">Buy now</button>
                     <button className="remove-item">Remove item</button>

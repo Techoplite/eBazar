@@ -84,25 +84,47 @@ const rootReducer = (state = initState, action) => {
         case actions.FETCH_DEALS_FAILURE:
             return { ...state, loading: false, items: action.payload }
         case actions.INCREASE_QUANTITY:
-            let cart = state.cart
-            let itemToAdd = action.payload
-            cart.items && cart.items.map(cartItem => {
-                if (cartItem.id === itemToAdd.id) {
-                    const itemToUpload = cart.items.find(cartItem => cartItem.id === itemToAdd.id)
-                    itemToUpload.quantity++
-                    return cart
-                }
-                else if (cartItem.id !== itemToAdd.id && !itemToAdd.quantity) {
-                    itemToAdd.quantity = 1
-                    cart.items = [...cart.items, itemToAdd]
-                    return cart
-                }
-            })
-            !cart.items.length
-                && (itemToAdd.quantity = 1)
-                && (cart.items = [...cart.items, itemToAdd])
-            return { ...state, cart: cart }
-
+            {
+                let cart = state.cart
+                let itemToAdd = action.payload
+                cart.items && cart.items.map(cartItem => {
+                    if (cartItem.id === itemToAdd.id) {
+                        const itemToUpload = cart.items.find(cartItem => cartItem.id === itemToAdd.id)
+                        itemToUpload.quantity++
+                        return cart
+                    }
+                    else if (cartItem.id !== itemToAdd.id && !itemToAdd.quantity) {
+                        itemToAdd.quantity = 1
+                        cart.items = [...cart.items, itemToAdd]
+                        return cart
+                    }
+                })
+                !cart.items.length
+                    && (itemToAdd.quantity = 1)
+                    && (cart.items = [...cart.items, itemToAdd])
+                return { ...state, cart: cart }
+            }
+        case actions.DECREASE_QUANTITY:
+            {
+                let cart = state.cart
+                let itemToDecrese = action.payload
+                cart.items && cart.items.map(cartItem => {
+                    if (cartItem.id === itemToDecrese.id) {
+                        const itemToUpload = cart.items.find(cartItem => cartItem.id === itemToDecrese.id)
+                        itemToUpload.quantity--
+                        return cart
+                    }
+                    else if (cartItem.id !== itemToDecrese.id && !itemToDecrese.quantity) {
+                        itemToDecrese.quantity = 1
+                        cart.items = [...cart.items, itemToDecrese]
+                        return cart
+                    }
+                })
+                !cart.items.length
+                    && (itemToDecrese.quantity = 1)
+                    && (cart.items = [...cart.items, itemToDecrese])
+                return { ...state, cart: cart }
+            }
         default:
             return state
     }
