@@ -89,23 +89,20 @@ const rootReducer = (state = initState, action) => {
                 let itemToAdd = action.payload
                 console.log('itemToAdd :>> ', itemToAdd);
                 cart.items && cart.items.map(cartItem => {
-                    console.log("cart has got items");
                     if (cartItem.id === itemToAdd.id) {
                         const itemToUpload = cart.items.find(cartItem => cartItem.id === itemToAdd.id)
                         itemToUpload.quantity++
                         return cart
                     }
-                    else if (cartItem.id !== itemToAdd.id && !itemToAdd.quantity || isNaN(itemToAdd.quantity)) {
+                    else if (cartItem.id !== itemToAdd.id && (!itemToAdd.quantity || isNaN(itemToAdd.quantity))) {
                         itemToAdd.quantity = 1
                         cart.items = [...cart.items, itemToAdd]
-                        console.log("all good");
                         return cart
                     }
                 })
                 !cart.items.length
                     && (itemToAdd.quantity = 1)
                     && (cart.items = [...cart.items, itemToAdd])
-                console.log("this is default");
                 return { ...state, cart: cart }
             }
         case actions.DECREASE_QUANTITY:

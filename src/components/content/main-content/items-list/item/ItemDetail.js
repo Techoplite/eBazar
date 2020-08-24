@@ -13,11 +13,7 @@ const ItemDetail = (props) => {
     const dispatch = useDispatch()
     const { currentItem, cart } = useSelector(mapState)
 
-    const getQuantity = currentItem => {
-        const quantity = cart.items.map(item =>
-            item.id === currentItem.id && item.quantity)
-        return quantity
-    }
+
 
     useEffect(() => {
         let { id } = props.match.params
@@ -51,16 +47,21 @@ const ItemDetail = (props) => {
         currentItem !== null &&
         currentItem.rating[5] * 100 / totalFeedbacks
 
+    const getQuantity = currentItem => {
+        const quantity = cart.items.map(item =>
+            item.id === currentItem.id && item.quantity)
+        return quantity
+    }
+
     return (
         currentItem !== null &&
         <div className="single-item-details">
             <div className="picture">
                 <img id="detail-img" src={process.env.PUBLIC_URL + `${currentItem.image}`} alt="" />
                 <div className="order">
-
-                    {getQuantity(currentItem) !== undefined &&
+                    {getQuantity(currentItem) > 0 &&
                         <Fragment>
-                        <button className="decrease" onClick={() => dispatch(actions.decreaseQuantity(currentItem))}>-</button><div className="quantity">{getQuantity(currentItem)}</div></Fragment>}
+                            <button className="decrease" onClick={() => dispatch(actions.decreaseQuantity(currentItem))}>-</button><div className="quantity">{getQuantity(currentItem)}</div></Fragment>}
                     <button className="add-to-cart" onClick={() => dispatch(actions.increaseQuantity(currentItem))}>Add to cart</button>
                     <button className="buy-now">Buy now</button>
                     <button className="remove-item" onClick={() => dispatch(actions.removeItem(currentItem))}>Remove item</button>
