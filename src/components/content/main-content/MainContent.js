@@ -5,6 +5,7 @@ import DealsOfTheDay from './items-list/deals-of-the-day/DealOfTheDay';
 import { Switch, Route } from 'react-router-dom'
 import ItemDetail from './items-list/item/ItemDetail';
 import CartSummary from './CartSummary';
+import CheckOut from './CheckOut';
 
 const MainContent = () => {
     return (
@@ -13,6 +14,7 @@ const MainContent = () => {
                 <Route path="/" exact component={ItemsList} />
                 <Route path="/best-sellers" exact component={BestSellers} />
                 <Route path="/deals-of-the-day" exact component={DealsOfTheDay} />
+                <Route path="/checkout" exact component={CheckOut} />
                 <Route path="/:id" exact component={ItemDetail} />
             </Switch>
             <CartSummary />

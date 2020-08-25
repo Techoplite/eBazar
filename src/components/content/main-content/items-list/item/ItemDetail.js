@@ -1,6 +1,8 @@
 import React, { useEffect, Fragment } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import * as actions from '../../../../../actions'
+import { NavLink } from 'react-router-dom'
+
 
 const ItemDetail = (props) => {
     const mapState = (state) => {
@@ -81,7 +83,13 @@ const ItemDetail = (props) => {
                         <button className="remove-item" onClick={() => dispatch(actions.removeItem(currentItem))}>Remove item
                     </button>
                     }
-                    <button className={`buy-now ${getWidth()}`}>Buy now</button>
+                    <NavLink to="/checkout/" className={`button buy-now ${getWidth()}`} onClick={() =>
+                        (getQuantity(currentItem) === undefined || getQuantity(currentItem) === 0)
+                        && dispatch(actions.increaseQuantity(currentItem))
+                    }
+                    >
+                        Buy now
+                    </NavLink>
                 </div>
 
             </div>
