@@ -650,9 +650,9 @@ label {
     min-width: 130px;
   }
 
-  .picture {
+  /* .picture {
     width: 40%;
-  }
+  } */
 
   .detail-item-name {
     font-size: 2rem;

@@ -91,6 +91,7 @@ const rootReducer = (state = initState, action) => {
                 cart.items && cart.items.map(cartItem => {
                     if (cartItem.id === itemToAdd.id) {
                         const itemToUpload = cart.items.find(cartItem => cartItem.id === itemToAdd.id)
+                        console.log("ITEM INCREASED");
                         itemToUpload.quantity++
                         return cart
                     }
