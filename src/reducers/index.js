@@ -87,16 +87,17 @@ const rootReducer = (state = initState, action) => {
             {
                 let cart = state.cart
                 let itemToAdd = action.payload
-                console.log('itemToAdd :>> ', itemToAdd);
                 cart.items && cart.items.map(cartItem => {
+                    console.log('cartItem.id, itemToAdd.id, itemToAdd.quantity :>> ', cartItem.id, itemToAdd.id, itemToAdd.quantity);
                     if (cartItem.id === itemToAdd.id) {
                         const itemToUpload = cart.items.find(cartItem => cartItem.id === itemToAdd.id)
                         console.log("ITEM INCREASED");
                         itemToUpload.quantity++
                         return cart
                     }
-                    else if (cartItem.id !== itemToAdd.id && (!itemToAdd.quantity || isNaN(itemToAdd.quantity))) {
+                    else if (cartItem.id !== itemToAdd.id && (!itemToAdd.quantity || isNaN(itemToAdd.quantity) || itemToAdd.quantity === 0)) {
                         itemToAdd.quantity = 1
+                        console.log("ITEM SET TO 1");
                         cart.items = [...cart.items, itemToAdd]
                         return cart
                     }
@@ -104,6 +105,7 @@ const rootReducer = (state = initState, action) => {
                 !cart.items.length
                     && (itemToAdd.quantity = 1)
                     && (cart.items = [...cart.items, itemToAdd])
+                    && console.log("NO ITEM CART ITEMS LENGTH")
                 return { ...state, cart: cart }
             }
         case actions.DECREASE_QUANTITY:
@@ -131,6 +133,7 @@ const rootReducer = (state = initState, action) => {
             {
                 let cart = state.cart
                 let itemToRemove = action.payload
+                cart.items.find(item => item.id === itemToRemove.id && (item.quantity = 0))
                 const cartItems = cart.items.filter(item => item.id !== itemToRemove.id)
                 cart.items = cartItems
                 return { ...state, cart: cart }

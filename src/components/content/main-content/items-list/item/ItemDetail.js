@@ -51,7 +51,6 @@ const ItemDetail = (props) => {
         const itemToCount = cart.items.find(item =>
             item.id === currentItem.id)
         const quantity = itemToCount && itemToCount.quantity
-        console.log('quantity :>> ', quantity);
         return quantity
     }
 
