@@ -83,13 +83,14 @@ const ItemDetail = (props) => {
                         <button className="remove-item" onClick={() => dispatch(actions.removeItem(currentItem))}>Remove item
                     </button>
                     }
-                    <NavLink to="/checkout/" className={`button buy-now ${getWidth()}`} onClick={() =>
+                    {(getQuantity(currentItem) === undefined || getQuantity(currentItem) === 0) && <NavLink to="/checkout/" className={`button buy-now ${getWidth()}`} onClick={() =>
                         (getQuantity(currentItem) === undefined || getQuantity(currentItem) === 0)
                         && dispatch(actions.increaseQuantity(currentItem))
                     }
                     >
                         Buy now
-                    </NavLink>
+                    </NavLink>}
+
                 </div>
 
             </div>
