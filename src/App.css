@@ -4,6 +4,40 @@ body {
 }
 
 /* Smartphones */
+.checkout-item {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 15px;
+  border-bottom: 2px solid lightgrey;
+  border-radius: 20px 0 40px 0;
+}
+
+.checkout-quantity {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  background-color: rgb(97, 63, 126);
+  color: white;
+}
+
+.checkout-decrease {
+  background-color: rgb(231, 161, 30);
+  width: 35%;
+}
+
+.checkout-add-to-cart {
+  background-color: rgb(10, 146, 10);
+  width: 35%;
+}
+
+.checkout-remove-item {
+  background-color: rgb(253, 58, 58);
+  width: 100%;
+}
+
 .full-width {
   width: 100% !important;
 }
@@ -90,7 +124,7 @@ li.subtotal {
 ul {
   list-style-type: none;
   padding: 0;
-  margin-block-start: auto;
+  /* margin-block-start: auto; */
 }
 
 .cart-summary {
@@ -134,7 +168,6 @@ button,
 
 .order {
   margin-top: 20px;
-
   height: 50%;
   display: flex;
   justify-content: space-between;
