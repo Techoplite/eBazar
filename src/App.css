@@ -4,6 +4,11 @@ body {
 }
 
 /* Smartphones */
+.item-container {
+  width: 70%;
+  height: 100%;
+}
+
 .checkout-item {
   margin-bottom: 5px;
   display: flex;
@@ -505,6 +510,15 @@ label {
 
 /* Tablet: */
 @media only screen and (min-width: 600px) {
+  .checkout-item {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  li {
+    font-size: 1rem;
+  }
+
   .cart-summary {
     margin: auto;
     width: 100%;
@@ -528,7 +542,7 @@ label {
 
   .picture {
     width: 50%;
-    margin: auto 0;
+    margin: auto;
     margin-top: 40px;
   }
 
@@ -640,7 +654,7 @@ label {
 /* Desktop: */
 @media only screen and (min-width: 812px) {
   .items-list {
-    width: fit-content;
+    width: 100%;
   }
 
   .filter-price {
@@ -655,7 +669,7 @@ label {
   }
 
   .with-aside {
-    margin-top: 0px;
+    margin-top: 10px;
   }
 
   .main-content {
