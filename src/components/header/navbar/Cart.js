@@ -1,5 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom'
+
 
 
 const Cart = () => {
@@ -22,12 +24,12 @@ const Cart = () => {
     }
 
     return (
-        <a href="/cart/" className="cart">
+        <NavLink to="/checkout/" className="cart">
             <i className="fas fa-shopping-cart" id="cart-icon">
                 <span >{getItemsQuantity()}</span>
             </i>
 
-        </a>
+        </NavLink>
     );
 }
 
