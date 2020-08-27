@@ -371,6 +371,9 @@ a {
   justify-content: space-between;
   background-color: rgb(216, 193, 119);
   border-bottom: 2px solid rgb(172, 154, 95);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 #search-box {
