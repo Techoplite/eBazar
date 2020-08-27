@@ -343,7 +343,7 @@ img {
   display: flex;
   flex-direction: column;
   background-color: white;
-  padding: 15px 0;
+  padding: 15px;
   border-bottom: 2px solid lightgrey;
   border-radius: 20px 0 40px 0;
 }
