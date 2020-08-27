@@ -4,6 +4,11 @@ body {
 }
 
 /* Smartphones */
+.stripe-checkout {
+  display: flex;
+  justify-content: center;
+}
+
 .item-container {
   width: 70%;
   height: 100%;

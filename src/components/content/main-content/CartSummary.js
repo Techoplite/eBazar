@@ -1,5 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
+import StripeCheckout from 'react-stripe-checkout'
+
 
 const CartSummary = () => {
     const mapState = (state) => {
@@ -46,6 +48,11 @@ const CartSummary = () => {
 
             </ul>
             <p className="total">Total: £{getTotal(cart.items)}</p>
+            <div className="stripe-checkout">
+                <StripeCheckout
+                    stripeKey="pk_test_51HKmuGJwupY92GFQfKJO9Bch0fbTBygcWgQ3IRWCGWRsqUWviryNYkjLmNwIz6VzDypvOWqwZd4Hz4ajCQuROPMK00JLVcKYUT"
+                />
+            </div>
         </div >
     );
 }

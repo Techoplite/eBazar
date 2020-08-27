@@ -64,6 +64,7 @@ const CheckOut = () => {
                                 <button className="checkout-remove-item" onClick={() => dispatch(actions.removeItem(item))}>Remove item
                     </button>
                             }
+
                         </div>
                     </li>
                 )
