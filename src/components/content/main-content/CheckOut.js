@@ -30,7 +30,7 @@ const CheckOut = () => {
                         key={item.name}
                     >
                         <div className="item-container">
-                            <img src={process.env.PUBLIC_URL + `${item.image}`} alt="" />
+                            <img src={process.env.PUBLIC_URL + `/${item.image}`} alt="" />
                             <div className="item-details">
                                 <div className="item-name">
                                     {item.name}

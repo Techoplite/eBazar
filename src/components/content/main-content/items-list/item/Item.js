@@ -13,8 +13,6 @@ const Item = (props) => {
     const star4Percentage = star4 * 100 / props.totalFeedbacks
     const star5Percentage = star5 * 100 / props.totalFeedbacks
 
-
-
     return (
         <Fragment>
             <img src={process.env.PUBLIC_URL + `${props.image}`} alt="" />

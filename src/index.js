@@ -19,7 +19,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <Router >
       <React.StrictMode>
         <App />
       </React.StrictMode>
