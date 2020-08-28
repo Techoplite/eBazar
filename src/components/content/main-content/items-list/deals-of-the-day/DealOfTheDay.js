@@ -15,6 +15,7 @@ const DealsOfTheDay = () => {
 
     useEffect(() => {
         dispatch(actions.fetchDeals())
+        return () => dispatch(actions.setAside(true))
     }, [dispatch])
 
     return (
@@ -33,5 +34,5 @@ const DealsOfTheDay = () => {
             )}
         </div>);
 }
- 
+
 export default DealsOfTheDay;

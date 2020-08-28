@@ -70,7 +70,7 @@ const Filter = () => {
                 <label htmlFor="minimum-price">Min. Price: £{minimumPrice}</label>
                 <input type="range" min="0" max="450" step="50" value={minimumPrice} className="slider col-xs-12" id="minimum-price" onChange={(event) => handleChange(event)} />
                 <label htmlFor="maximum-price">Max. Price: £{maximumPrice}</label>
-                <input type="range" min="500" max="5000" step="100" value={maximumPrice} className="slider col-xs-12" id="maximum-price" onChange={(event) => handleChange(event)} />
+                <input type="range" min="500" max="2000" step="100" value={maximumPrice} className="slider col-xs-12" id="maximum-price" onChange={(event) => handleChange(event)} />
             </form>
         </div>
     );

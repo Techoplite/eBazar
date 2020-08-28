@@ -16,6 +16,7 @@ const BestSellers = () => {
 
     useEffect(() => {
         dispatch(actions.fetchBestSellers())
+        return () => dispatch(actions.setAside(true))
     }, [dispatch])
 
     return (

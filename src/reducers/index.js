@@ -17,7 +17,7 @@ const initState = {
     toggler: 'hidden',
     error: '',
     minimumPrice: 0,
-    maximumPrice: 5000,
+    maximumPrice: 2000,
     items: [],
     valueSearched: '',
     currentItem: null,
