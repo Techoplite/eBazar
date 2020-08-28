@@ -9,7 +9,4 @@ A sticky-top **NAVBAR** with the following nav links:
 * **Register** and **Sign in**: these two are just placeholders as no authentication system has been implemented in this project.
 * **Cart**: the cart icon, which shows how many items are currently in the cart and once clicked it redirects to the checkout summary.
 
-![Navbar image](/Navbar.png)
-Format: ![Alt Text](url)
-
 ![](navbar.gif)
