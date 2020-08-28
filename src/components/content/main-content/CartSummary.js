@@ -1,6 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import StripeCheckout from 'react-stripe-checkout'
+import * as actions from '../../../actions'
+import { Redirect } from 'react-router-dom'
 
 
 const CartSummary = () => {
@@ -11,6 +13,7 @@ const CartSummary = () => {
         }
     }
 
+    const dispatch = useDispatch()
     const { cart, aside } = useSelector(mapState)
 
     const getSubtotal = (item) => {
@@ -33,6 +36,16 @@ const CartSummary = () => {
         return aside ? "with-aside" : ""
     }
 
+    const handleToken = (token, address) =>{
+        console.log({ token, address },
+            cart.items.map(item => dispatch(actions.removeItem(item))),
+        )
+    }
+
+
+
+
+
     return (
         <div className={`cart-summary ${getAside()}`}>
             <p className="user-cart-name">{cart.user}'s cart</p>
@@ -51,6 +64,7 @@ const CartSummary = () => {
             <div className="stripe-checkout">
                 <StripeCheckout
                     stripeKey="pk_test_51HKmuGJwupY92GFQfKJO9Bch0fbTBygcWgQ3IRWCGWRsqUWviryNYkjLmNwIz6VzDypvOWqwZd4Hz4ajCQuROPMK00JLVcKYUT"
+                    token={handleToken}
                 />
             </div>
         </div >
